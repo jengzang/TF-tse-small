@@ -1,0 +1,136 @@
+# Baseline model settings are unchanged. Prepare data/ before training.
+optimizer: !name:torch.optim.Adam
+    lr: 0.001
+    weight_decay: 0
+
+checkpoint: 1
+continue_from: ''
+max_norm: 5
+
+print_freq: 100
+name: t0/mono_fixed
+
+
+epochs: 400
+batch_size: 8
+num_workers: 8
+
+num_spks: 1
+duration: 10
+sample_rate: 16000
+
+train_spk2utts_path:
+    aishell1: data/AISHELL1/train_spk2utts.pt
+    aishell2: data/AISHELL2/train/spk2utts.pt
+    librispeech: data/Librispeech/train_spk2utts.pt
+    aidatatang: data/aidatatang/train_spk2utts.pt
+    3dspeaker: data/3D-Speaker/train/train_spk2utts.pt
+
+train_embd_path:
+    aishell1: data/AISHELL1/train_spk2embd_resnet34yk.pt
+    aishell2: data/AISHELL2/train/spk2embd_resnet34yk.pt
+    librispeech: data/Librispeech/train_spk2embd_resnet34yk.pt
+    aidatatang: data/aidatatang/train_spk2embd_resnet34yk.pt
+    3dspeaker: data/3D-Speaker/train/train_spk2embed_resnet34yk.pt
+
+dev_embd_path:
+    aidatatang: data/aidatatang/dev_spk2embd_resnet34yk.pt
+
+dev_mix_scp: data/dev/mix_both_reverb.scp
+dev_ref_scp: data/dev/s1_reverb.scp
+dev_aux_scp: data/dev/aux_wav.scp
+dev_spk2utts: data/aidatatang/dev_spk2utts.pt
+
+test_mix_scp: data/test/mix_single.scp
+test_ref_scp: data/test/tgt_a.scp
+test_aux_scp: data/test/aux.scp
+
+noise_scp: data/wham_noise
+train_reverb_param_root: data/room/reverb_params_tr.csv
+rir_scp: data/rir_noise/rir_noise.scp
+
+train_iter: 20000
+dev_iter: 10000
+
+train_noise: tr_oppo_noise.scp
+dev_noise: cv.scp
+
+min_max: 'max'
+
+data_list: ['aishell1','aishell2','librispeech','3dspeaker','aidatatang']
+
+STFT: !new:utils.feature.STFT
+    n_fft: 512
+    hop_length: 320
+    win_length: 512
+
+iSTFT: !new:utils.feature.iSTFT
+    n_fft: 512
+    hop_length: 320
+    win_length: 512
+
+STFT512: !new:utils.feature.STFT
+    n_fft: 512
+    hop_length: 256
+    win_length: 512
+
+iSTFT512: !new:utils.feature.iSTFT
+    n_fft: 512
+    hop_length: 256
+    win_length: 512
+
+STFT256: !new:utils.feature.STFT
+    n_fft: 256
+    hop_length: 128
+    win_length: 256
+
+iSTFT256: !new:utils.feature.iSTFT
+    n_fft: 256
+    hop_length: 128
+    win_length: 256
+
+STFT128: !new:utils.feature.STFT
+    n_fft: 128
+    hop_length: 64
+    win_length: 128
+
+iSTFT128: !new:utils.feature.iSTFT
+    n_fft: 128
+    hop_length: 64
+    win_length: 128
+
+
+
+MaskNet: !new:models.model_tfgridnet_mono.Tar_Model
+    stft: !ref <STFT>
+    istft: !ref <iSTFT>
+    time_layout: fixed
+    feature_dim: 257
+    embd_dim: 256
+    fc_dim: 16
+    emb_ks: 1
+    emb_hs: 1
+    num_layers: 2
+    lstm_hidden_units: 32
+
+modules:
+    masknet: !ref <MaskNet>
+
+
+# Explicit mono bundle contract; supply real manifests and compatible embedding caches.
+input_channels: 1
+dataset_type: bundle
+mono_policy: mono
+bundle_root: null
+bundle_train_mix: data/mono/train_mix.scp
+bundle_train_ref: data/mono/train_ref.scp
+bundle_train_aux: data/mono/train_aux.scp
+bundle_dev_mix: data/mono/dev_mix.scp
+bundle_dev_ref: data/mono/dev_ref.scp
+bundle_dev_aux: data/mono/dev_aux.scp
+bundle_train_cache: data/mono/train_embeddings.pt
+bundle_dev_cache: data/mono/dev_embeddings.pt
+legacy_positive_clamp: true
+padding_aware_loss: false
+# Warm-start model only; optimizer and epoch start fresh.
+init_from: ''

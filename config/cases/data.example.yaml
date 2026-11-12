@@ -1,0 +1,11 @@
+# Copy to data.server.yaml and edit once. Relative paths resolve from this file.
+bundle_root: null
+bundle_train_mix: /data/mono/train_mix.scp
+bundle_train_ref: /data/mono/train_ref.scp
+bundle_train_aux: /data/mono/train_aux.scp
+bundle_train_cache: /data/mono/train_embeddings.pt
+bundle_dev_mix: /data/mono/dev_mix.scp
+bundle_dev_ref: /data/mono/dev_ref.scp
+bundle_dev_aux: /data/mono/dev_aux.scp
+bundle_dev_cache: /data/mono/dev_embeddings.pt
+ref_duration: 2.9

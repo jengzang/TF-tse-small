@@ -1,0 +1,84 @@
+# Independent single-variable mono case. Data/runtime overrides: scripts/run_case.py.
+optimizer: !name:torch.optim.Adam
+    lr: 0.001
+    weight_decay: 0
+checkpoint: 1
+continue_from: ''
+init_from: ''
+max_norm: 5
+print_freq: 100
+name: cases/case02_small_mix_skip
+seed: 3407
+device: cuda
+precision: fp32
+backend_acceleration: false
+backend_benchmark: false
+backend_deterministic: true
+epochs: 400
+max_steps: null
+batch_size: 8
+num_workers: 8
+persistent_workers: true
+prefetch_factor: 2
+validation_batch_size: 1
+gradient_accumulation_steps: 1
+duration: 10
+sample_rate: 16000
+num_spks: 1
+input_channels: 1
+dataset_type: bundle
+corpus_index: null
+corpus_embedding_cache: null
+train_epoch_size: 32000
+mono_policy: mono
+bundle_root: null
+ref_duration: 2.9
+bundle_train_mix: data/mono/train_mix.scp
+bundle_train_ref: data/mono/train_ref.scp
+bundle_train_aux: data/mono/train_aux.scp
+bundle_dev_mix: data/mono/dev_mix.scp
+bundle_dev_ref: data/mono/dev_ref.scp
+bundle_dev_aux: data/mono/dev_aux.scp
+bundle_train_cache: data/mono/train_embeddings.pt
+bundle_dev_cache: data/mono/dev_embeddings.pt
+legacy_positive_clamp: false
+padding_aware_loss: true
+target_absent_loss: true
+STFT: !new:utils.feature.STFT
+    n_fft: 512
+    hop_length: 320
+    win_length: 512
+iSTFT: !new:utils.feature.iSTFT
+    n_fft: 512
+    hop_length: 320
+    win_length: 512
+STFT512: !new:utils.feature.STFT
+    n_fft: 512
+    hop_length: 256
+    win_length: 512
+STFT256: !new:utils.feature.STFT
+    n_fft: 256
+    hop_length: 128
+    win_length: 256
+STFT128: !new:utils.feature.STFT
+    n_fft: 128
+    hop_length: 64
+    win_length: 128
+MaskNet: !new:models.model_tfgridnet_cases.Tar_Model
+    stft: !ref <STFT>
+    istft: !ref <iSTFT>
+    feature_dim: 257
+    embd_dim: 256
+    fc_dim: 16
+    emb_ks: 1
+    emb_hs: 1
+    num_layers: 2
+    lstm_hidden_units: 32
+    time_layout: fixed
+    variant: mix_skip
+    condition_dim: 32
+    fla_dim: 64
+    fla_heads: 2
+    time_bilstm_hidden: 20
+modules:
+    masknet: !ref <MaskNet>

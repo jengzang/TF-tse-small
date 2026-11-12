@@ -1,0 +1,75 @@
+{
+  "created_at": "2026-11-11T08:15:04.136229+00:00",
+  "cases": [
+    {
+      "case": "case00_small_gridnet",
+      "stage": "formal",
+      "checkpoint_epoch": 50,
+      "completed_epochs": 50,
+      "checkpoint_sha256": "d3dfd6071994c9c7c850d595a1fdad2f4777554697bb6a10b55ba1562d1ec0ad"
+    },
+    {
+      "case": "case01_wide_gridnet",
+      "stage": "formal",
+      "checkpoint_epoch": 30,
+      "completed_epochs": 34,
+      "checkpoint_sha256": "a51da4329ea416b89b4b11ae04b4182e4151aec92bfb238e9f78467f45ef70d6"
+    },
+    {
+      "case": "case02_small_mix_skip",
+      "stage": "formal",
+      "checkpoint_epoch": 50,
+      "completed_epochs": 50,
+      "checkpoint_sha256": "1dbdcf7bd87b6899bcbc2c05785e1b861beab26f5ffa8973481281d53c1b7d7c"
+    },
+    {
+      "case": "case03_wide_mix_skip",
+      "stage": "formal",
+      "checkpoint_epoch": 27,
+      "completed_epochs": 28,
+      "checkpoint_sha256": "5307ba479805ba88c256bfc34e2f5dabadf0bac97f55b0312cc3a85adacb893f"
+    },
+    {
+      "case": "case04_small_film",
+      "stage": "formal",
+      "checkpoint_epoch": 45,
+      "completed_epochs": 50,
+      "checkpoint_sha256": "a2e082aa95c583d4779f2917d8464de41079a8461d813b78bda8b746426ab245"
+    },
+    {
+      "case": "case05_wide_film",
+      "stage": "formal",
+      "checkpoint_epoch": 3,
+      "completed_epochs": 3,
+      "checkpoint_sha256": "6b1b048320e6bac08f2a34d2c2604a4d34aba226c16b2c163f082b94ef22ee25"
+    },
+    {
+      "case": "case06_small_t_fla",
+      "stage": "pilot",
+      "checkpoint_epoch": 3,
+      "completed_epochs": 3,
+      "checkpoint_sha256": "a0be0eac2fef2d873555259a7393527b34aff72dfb6d34fd95a6d9867ce78a5a"
+    },
+    {
+      "case": "case07_wide_t_fla",
+      "stage": "pilot",
+      "checkpoint_epoch": 3,
+      "completed_epochs": 3,
+      "checkpoint_sha256": "fb633db475a145c5d7b0816428fb6538968849950ba75a292a8724b0c017e9b8"
+    },
+    {
+      "case": "case08_small_t_bilstm",
+      "stage": "formal",
+      "checkpoint_epoch": 45,
+      "completed_epochs": 46,
+      "checkpoint_sha256": "89d2fd2b9d0a3fb558dec92396f27630a20d11a6b10c79b3ae6ef62b5641639d"
+    },
+    {
+      "case": "case09_wide_t_bilstm",
+      "stage": "pilot",
+      "checkpoint_epoch": 3,
+      "completed_epochs": 3,
+      "checkpoint_sha256": "fcd2afd9b0998f90fe928b23fbbb61fba9aa232b6613f04080621f0ece1e742f"
+    }
+  ]
+}

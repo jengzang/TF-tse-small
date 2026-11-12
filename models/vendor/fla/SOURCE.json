@@ -1,0 +1,9 @@
+{
+  "local_reference": "speech_flatflocoformer_separation_timefrequency_8k_middle_libri2mix360/official_fla/upstream",
+  "copied_on": "2026-11-10",
+  "note": "Byte-identical local curated upstream snapshot; only FocusedLinearAttention is used. No claim of reproducing released full-model behavior.",
+  "files": {
+    "linear_attn.py": "d5c4e581cb9ac380c16f4e67fc8acb13fe3b1e056b88ce139e7b140929b4c427",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+}

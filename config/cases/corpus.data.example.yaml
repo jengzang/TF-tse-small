@@ -1,0 +1,11 @@
+# Shared corpus-mix training and fixed validation paths. Relative to this file.
+dataset_type: corpus_mix
+corpus_index: /data/tse/corpus_index.json
+corpus_embedding_cache: /data/tse/corpus_embeddings.pt
+train_epoch_size: 32000
+bundle_root: null
+bundle_dev_mix: /data/tse/dev/mix.scp
+bundle_dev_ref: /data/tse/dev/ref.scp
+bundle_dev_aux: /data/tse/dev/aux.scp
+bundle_dev_cache: /data/tse/dev/embeddings.pt
+ref_duration: 2.9

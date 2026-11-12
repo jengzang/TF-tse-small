@@ -1,0 +1,10 @@
+dataset_type: corpus_mix
+corpus_index: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/index.json
+corpus_embedding_cache: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/embeddings.pt
+train_epoch_size: 32000
+bundle_root: null
+bundle_dev_mix: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/mix.scp
+bundle_dev_ref: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/ref.scp
+bundle_dev_aux: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/aux.scp
+bundle_dev_cache: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/embeddings.pt
+ref_duration: 2.9

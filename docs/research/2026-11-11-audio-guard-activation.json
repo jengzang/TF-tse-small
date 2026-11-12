@@ -1,0 +1,34 @@
+{
+  "reason": "Reject empty and silent source audio; fixed eval audit passed",
+  "checkpoints": [
+    {
+      "case": "case01_wide_gridnet",
+      "path": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case01_wide_gridnet/epoch46.pth.tar",
+      "epoch": 46,
+      "sha256": "2fe38c7e8911e04eafc472965c0ae5b9e70c7c46535593b09a601dd494388b7d"
+    },
+    {
+      "case": "case03_wide_mix_skip",
+      "path": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case03_wide_mix_skip/epoch39.pth.tar",
+      "epoch": 39,
+      "sha256": "eefec07b7564b06037148a9c1fb7286609231430cef4680ea3e8b9864a795423"
+    },
+    {
+      "case": "case05_wide_film",
+      "path": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case05_wide_film/epoch15.pth.tar",
+      "epoch": 15,
+      "sha256": "24776f21a43b58fc47c3b080e2c52d0b4bb07672bde2f6d22a8d8883a6411278"
+    },
+    {
+      "case": "case06_small_t_fla",
+      "path": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case06_small_t_fla/epoch11.pth.tar",
+      "epoch": 11,
+      "sha256": "950105ed9ca5aeb7d87f91f4d06fadaece2357adcc8e4887033bf7d228ae38ee"
+    }
+  ],
+  "source_sha256": {
+    "dataset/corpus_mix.py": "bceffc390e901f15e35ff4f884043684731483e6180d7656efc3ab16919a168a",
+    "dataset/bundle_data.py": "cff1e9a1e8cc2adf13cce8787a8dc84a77682c018bf2501ae1a553f0808bb326"
+  },
+  "new_supervisor_pid": 21035
+}

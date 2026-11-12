@@ -1,0 +1,782 @@
+{
+  "senior_epoch54_dev_scenario": {
+    "summary": {
+      "active_count": 461,
+      "absent_count": 51,
+      "input_sisnr_db": 13.669451245053695,
+      "output_sisnr_db": 3.342960378785422,
+      "sisnri_db": -10.326490866268273,
+      "gain_db": -0.8332216441726422,
+      "waveform_mae": 0.013307574675812379,
+      "absent_output_rms": 0.014895308055395757,
+      "absent_output_to_mix_db": -9.184287659096578,
+      "pause_output_rms": 0.011765868910167248,
+      "pause_annotated_count": 94
+    },
+    "groups": {
+      "sir_db": {
+        "-0.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": 0.017425780256207172,
+          "output_sisnr_db": 0.6061219974206045,
+          "sisnri_db": 0.5886962171643972,
+          "gain_db": -1.1213108860109953,
+          "waveform_mae": 0.01627042119462903,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-10.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -10.103696969839243,
+          "output_sisnr_db": -11.759486436843872,
+          "sisnri_db": -1.6557894670046294,
+          "gain_db": -0.06876505479852575,
+          "waveform_mae": 0.010254947307447974,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-20.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -19.490437580988957,
+          "output_sisnr_db": -27.42531002484835,
+          "sisnri_db": -7.934872443859394,
+          "gain_db": 8.9560881951368,
+          "waveform_mae": 0.008506044969320871,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-5.0": {
+          "active_count": 92,
+          "absent_count": 10,
+          "input_sisnr_db": 10.563899796942007,
+          "output_sisnr_db": -1.8802915686721224,
+          "sisnri_db": -12.44419136561413,
+          "gain_db": -0.7606944326010263,
+          "waveform_mae": 0.021272544559273545,
+          "absent_output_rms": 0.03415797041458467,
+          "absent_output_to_mix_db": -9.759317550319432,
+          "pause_output_rms": 0.025785708851698372,
+          "pause_annotated_count": 18
+        },
+        "0.0": {
+          "active_count": 79,
+          "absent_count": 11,
+          "input_sisnr_db": 14.651159361485043,
+          "output_sisnr_db": 2.6543806757353527,
+          "sisnri_db": -11.996778685749689,
+          "gain_db": -1.1466130761275333,
+          "waveform_mae": 0.01570902723536084,
+          "absent_output_rms": 0.022181186300941236,
+          "absent_output_to_mix_db": -6.442614523322255,
+          "pause_output_rms": 0.01988931435334962,
+          "pause_annotated_count": 16
+        },
+        "10.0": {
+          "active_count": 76,
+          "absent_count": 14,
+          "input_sisnr_db": 15.506605298895584,
+          "output_sisnr_db": 8.311677185879825,
+          "sisnri_db": -7.19492811301576,
+          "gain_db": -1.326537279298354,
+          "waveform_mae": 0.009377554360789395,
+          "absent_output_rms": 0.007171242492395013,
+          "absent_output_to_mix_db": -9.388389363587637,
+          "pause_output_rms": 0.0058750333922469745,
+          "pause_annotated_count": 23
+        },
+        "20.0": {
+          "active_count": 81,
+          "absent_count": 8,
+          "input_sisnr_db": 25.5091350696705,
+          "output_sisnr_db": 10.48500375210503,
+          "sisnri_db": -15.024131317565471,
+          "gain_db": -0.9190787588629007,
+          "waveform_mae": 0.007000782219463109,
+          "absent_output_rms": 0.0020996769126784185,
+          "absent_output_to_mix_db": -8.830672297813862,
+          "pause_output_rms": 0.0018840711078761767,
+          "pause_annotated_count": 18
+        },
+        "5.0": {
+          "active_count": 94,
+          "absent_count": 8,
+          "input_sisnr_db": 13.957999188849266,
+          "output_sisnr_db": 5.584526420669987,
+          "sisnri_db": -8.37347276817928,
+          "gain_db": -1.5877106783181236,
+          "waveform_mae": 0.012782327746576134,
+          "absent_output_rms": 0.007111643396753251,
+          "absent_output_to_mix_db": -12.231738235181064,
+          "pause_output_rms": 0.008135833716216056,
+          "pause_annotated_count": 19
+        }
+      },
+      "scenario": {
+        "overlap": {
+          "active_count": 379,
+          "absent_count": 0,
+          "input_sisnr_db": 4.171117752966725,
+          "output_sisnr_db": 2.354469014289924,
+          "sisnri_db": -1.8166487386768009,
+          "gain_db": -0.7967003376602377,
+          "waveform_mae": 0.014296321068106509,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-absent": {
+          "active_count": 0,
+          "absent_count": 51,
+          "input_sisnr_db": null,
+          "output_sisnr_db": null,
+          "sisnri_db": null,
+          "gain_db": null,
+          "waveform_mae": null,
+          "absent_output_rms": 0.014895308055395757,
+          "absent_output_to_mix_db": -9.184287659096578,
+          "pause_output_rms": 0.01489530815103767,
+          "pause_annotated_count": 51
+        },
+        "target-only": {
+          "active_count": 39,
+          "absent_count": 0,
+          "input_sisnr_db": 113.21470779027695,
+          "output_sisnr_db": 10.258067480957088,
+          "sisnri_db": -102.95664030931985,
+          "gain_db": -0.9776475766348907,
+          "waveform_mae": 0.006841460845839136,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-pause": {
+          "active_count": 43,
+          "absent_count": 0,
+          "input_sisnr_db": 7.102088180803802,
+          "output_sisnr_db": 5.783635963880738,
+          "sisnri_db": -1.3184522169230635,
+          "gain_db": -1.0241277791069192,
+          "waveform_mae": 0.010457424831381717,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": 0.008054208415181398,
+          "pause_annotated_count": 43
+        }
+      }
+    },
+    "interference": {
+      "count": 422,
+      "active_count": 422,
+      "input_sisnr_db": 4.4697711377937255,
+      "output_sisnr_db": 2.7038864996747702,
+      "sisnri_db": -1.7658846381189557,
+      "gain_db": -0.8198742238739993,
+      "improved_count": 178
+    },
+    "strong_target": {
+      "count": 234,
+      "active_count": 234,
+      "input_sisnr_db": 11.408962665460049,
+      "output_sisnr_db": 7.898536241430248,
+      "sisnri_db": -3.5104264240298004,
+      "gain_db": -1.2902720186684615,
+      "improved_count": 73
+    }
+  },
+  "case00_epoch46_test_scenario": {
+    "summary": {
+      "active_count": 472,
+      "absent_count": 40,
+      "input_sisnr_db": 11.908511610892088,
+      "output_sisnr_db": 10.035669335393013,
+      "sisnri_db": -1.8728422754990741,
+      "gain_db": -9.854874303582424,
+      "waveform_mae": 0.01726355074714451,
+      "absent_output_rms": 0.0075180310866060085,
+      "absent_output_to_mix_db": -12.895986204738046,
+      "pause_output_rms": 0.004567027966480791,
+      "pause_annotated_count": 84
+    },
+    "groups": {
+      "sir_db": {
+        "-0.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -0.05625891900406434,
+          "output_sisnr_db": 3.741636159328314,
+          "sisnri_db": 3.7978950783323784,
+          "gain_db": -9.703156852415454,
+          "waveform_mae": 0.016357902007607315,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-10.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -9.758636914766752,
+          "output_sisnr_db": -6.547076686070516,
+          "sisnri_db": 3.211560228696236,
+          "gain_db": -2.3395788027532127,
+          "waveform_mae": 0.007927445193322806,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-20.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -20.014257724468525,
+          "output_sisnr_db": -15.993118359492374,
+          "sisnri_db": 4.0211393649761495,
+          "gain_db": 6.8513242567388835,
+          "waveform_mae": 0.005207821502923393,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-5.0": {
+          "active_count": 94,
+          "absent_count": 8,
+          "input_sisnr_db": 0.3599818818112637,
+          "output_sisnr_db": 3.013898281340903,
+          "sisnri_db": 2.6539163995296398,
+          "gain_db": -7.1409727241355645,
+          "waveform_mae": 0.01651089868329941,
+          "absent_output_rms": 0.01576707239135178,
+          "absent_output_to_mix_db": -13.576315838906803,
+          "pause_output_rms": 0.008622890326047414,
+          "pause_annotated_count": 19
+        },
+        "0.0": {
+          "active_count": 87,
+          "absent_count": 3,
+          "input_sisnr_db": 13.83773303903832,
+          "output_sisnr_db": 8.422169287442818,
+          "sisnri_db": -5.415563751595502,
+          "gain_db": -10.281173405059976,
+          "waveform_mae": 0.018303839136557334,
+          "absent_output_rms": 0.016301995282153512,
+          "absent_output_to_mix_db": -12.849793078052627,
+          "pause_output_rms": 0.005424154808133607,
+          "pause_annotated_count": 15
+        },
+        "10.0": {
+          "active_count": 78,
+          "absent_count": 12,
+          "input_sisnr_db": 20.752161013774383,
+          "output_sisnr_db": 15.666362603505453,
+          "sisnri_db": -5.08579841026893,
+          "gain_db": -12.277072643027285,
+          "waveform_mae": 0.018172479294335995,
+          "absent_output_rms": 0.004422268393769619,
+          "absent_output_to_mix_db": -12.213971363358667,
+          "pause_output_rms": 0.0035998497648203434,
+          "pause_annotated_count": 15
+        },
+        "20.0": {
+          "active_count": 79,
+          "absent_count": 10,
+          "input_sisnr_db": 26.97245366060281,
+          "output_sisnr_db": 22.92753818367101,
+          "sisnri_db": -4.044915476931801,
+          "gain_db": -12.2952704036375,
+          "waveform_mae": 0.01777679184923255,
+          "absent_output_rms": 0.0010531288460453234,
+          "absent_output_to_mix_db": -13.22921528536624,
+          "pause_output_rms": 0.0006315204323982471,
+          "pause_annotated_count": 20
+        },
+        "5.0": {
+          "active_count": 95,
+          "absent_count": 7,
+          "input_sisnr_db": 10.7514000742059,
+          "output_sisnr_db": 9.809791850416284,
+          "sisnri_db": -0.9416082237896166,
+          "gain_db": -11.466955502724913,
+          "waveform_mae": 0.01893375091940949,
+          "absent_output_rms": 0.008868595614468122,
+          "absent_output_to_mix_db": -12.831390432877573,
+          "pause_output_rms": 0.00478699704981409,
+          "pause_annotated_count": 15
+        }
+      },
+      "scenario": {
+        "overlap": {
+          "active_count": 395,
+          "absent_count": 0,
+          "input_sisnr_db": 3.9319731720699633,
+          "output_sisnr_db": 7.537984353973519,
+          "sisnri_db": 3.606011181903555,
+          "gain_db": -9.673310757603893,
+          "waveform_mae": 0.01748134886250607,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-absent": {
+          "active_count": 0,
+          "absent_count": 40,
+          "input_sisnr_db": null,
+          "output_sisnr_db": null,
+          "sisnri_db": null,
+          "gain_db": null,
+          "waveform_mae": null,
+          "absent_output_rms": 0.0075180310866060085,
+          "absent_output_to_mix_db": -12.895986204738046,
+          "pause_output_rms": 0.007518031125073321,
+          "pause_annotated_count": 40
+        },
+        "target-only": {
+          "active_count": 33,
+          "absent_count": 0,
+          "input_sisnr_db": 116.7868300929214,
+          "output_sisnr_db": 40.70349326278224,
+          "sisnri_db": -76.08333683013916,
+          "gain_db": -12.426532953606934,
+          "waveform_mae": 0.020135596422760776,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-pause": {
+          "active_count": 44,
+          "absent_count": 0,
+          "input_sisnr_db": 4.857333734250543,
+          "output_sisnr_db": 9.457200654867021,
+          "sisnri_db": 4.599866920616478,
+          "gain_db": -9.556075785644056,
+          "waveform_mae": 0.013154283409345557,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": 0.0018842978223057633,
+          "pause_annotated_count": 44
+        }
+      }
+    },
+    "interference": {
+      "count": 439,
+      "active_count": 439,
+      "input_sisnr_db": 4.024720016570978,
+      "output_sisnr_db": 7.730343163174689,
+      "sisnri_db": 3.7056231466037115,
+      "gain_db": -9.661560555402906,
+      "improved_count": 398
+    },
+    "strong_target": {
+      "count": 233,
+      "active_count": 233,
+      "input_sisnr_db": 11.193803095510589,
+      "output_sisnr_db": 13.854496265941423,
+      "sisnri_db": 2.660693170430834,
+      "gain_db": -11.95272203269913,
+      "improved_count": 218
+    }
+  },
+  "senior_epoch54_test_scenario": {
+    "summary": {
+      "active_count": 472,
+      "absent_count": 40,
+      "input_sisnr_db": 11.908511610892088,
+      "output_sisnr_db": 3.251187121906018,
+      "sisnri_db": -8.65732448898607,
+      "gain_db": -0.8796706644903964,
+      "waveform_mae": 0.013127893847275241,
+      "absent_output_rms": 0.01539169381137546,
+      "absent_output_to_mix_db": -8.700868245450497,
+      "pause_output_rms": 0.012058748191131079,
+      "pause_annotated_count": 84
+    },
+    "groups": {
+      "sir_db": {
+        "-0.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -0.05625891900406434,
+          "output_sisnr_db": 1.1154499627076662,
+          "sisnri_db": 1.1717088817117305,
+          "gain_db": -1.0347858145582374,
+          "waveform_mae": 0.015224735933141066,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-10.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -9.758636914766752,
+          "output_sisnr_db": -10.47573027243981,
+          "sisnri_db": -0.7170933576730582,
+          "gain_db": -0.08574588118294892,
+          "waveform_mae": 0.011168684237278424,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-20.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -20.014257724468525,
+          "output_sisnr_db": -34.2444581251878,
+          "sisnri_db": -14.230200400719276,
+          "gain_db": 8.17882585350051,
+          "waveform_mae": 0.009256584972787935,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-5.0": {
+          "active_count": 94,
+          "absent_count": 8,
+          "input_sisnr_db": 0.3599818818112637,
+          "output_sisnr_db": -2.0518240723362626,
+          "sisnri_db": -2.4118059541475265,
+          "gain_db": -0.7613622066470649,
+          "waveform_mae": 0.02050035710179029,
+          "absent_output_rms": 0.035511037785648444,
+          "absent_output_to_mix_db": -8.310925965319012,
+          "pause_output_rms": 0.0272459109914244,
+          "pause_annotated_count": 19
+        },
+        "0.0": {
+          "active_count": 87,
+          "absent_count": 3,
+          "input_sisnr_db": 13.83773303903832,
+          "output_sisnr_db": 2.7726837460850846,
+          "sisnri_db": -11.065049292953235,
+          "gain_db": -1.5407629686614928,
+          "waveform_mae": 0.015115415187681029,
+          "absent_output_rms": 0.03563865154496545,
+          "absent_output_to_mix_db": -6.227753025247689,
+          "pause_output_rms": 0.013178183697164059,
+          "pause_annotated_count": 15
+        },
+        "10.0": {
+          "active_count": 78,
+          "absent_count": 12,
+          "input_sisnr_db": 20.752161013774383,
+          "output_sisnr_db": 8.497238296728868,
+          "sisnri_db": -12.254922717045515,
+          "gain_db": -1.3430332660934137,
+          "waveform_mae": 0.009396601032513456,
+          "absent_output_rms": 0.006892346854423453,
+          "absent_output_to_mix_db": -10.49585642946113,
+          "pause_output_rms": 0.00588209581716607,
+          "pause_annotated_count": 15
+        },
+        "20.0": {
+          "active_count": 79,
+          "absent_count": 10,
+          "input_sisnr_db": 26.97245366060281,
+          "output_sisnr_db": 10.436999653713613,
+          "sisnri_db": -16.5354540068892,
+          "gain_db": -0.858884681153269,
+          "waveform_mae": 0.008016588801482715,
+          "absent_output_rms": 0.0019999137078544893,
+          "absent_output_to_mix_db": -8.025598156787215,
+          "pause_output_rms": 0.001782540998829063,
+          "pause_annotated_count": 20
+        },
+        "5.0": {
+          "active_count": 95,
+          "absent_count": 7,
+          "input_sisnr_db": 10.7514000742059,
+          "output_sisnr_db": 5.955393034690305,
+          "sisnri_db": -4.796007039515596,
+          "gain_db": -1.3551522886902079,
+          "waveform_mae": 0.011837849940026277,
+          "absent_output_rms": 0.017422313743329736,
+          "absent_output_to_mix_db": -8.093972042617013,
+          "pause_output_rms": 0.01158050176842759,
+          "pause_annotated_count": 15
+        }
+      },
+      "scenario": {
+        "overlap": {
+          "active_count": 395,
+          "absent_count": 0,
+          "input_sisnr_db": 3.9319731720699633,
+          "output_sisnr_db": 2.496815653862078,
+          "sisnri_db": -1.4351575182078855,
+          "gain_db": -0.9004224771749287,
+          "waveform_mae": 0.013705549569788707,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-absent": {
+          "active_count": 0,
+          "absent_count": 40,
+          "input_sisnr_db": null,
+          "output_sisnr_db": null,
+          "sisnri_db": null,
+          "gain_db": null,
+          "waveform_mae": null,
+          "absent_output_rms": 0.01539169381137546,
+          "absent_output_to_mix_db": -8.700868245450497,
+          "pause_output_rms": 0.015391693654237315,
+          "pause_annotated_count": 40
+        },
+        "target-only": {
+          "active_count": 33,
+          "absent_count": 0,
+          "input_sisnr_db": 116.7868300929214,
+          "output_sisnr_db": 10.994093244726008,
+          "sisnri_db": -105.79273684819539,
+          "gain_db": -0.6091927650396834,
+          "waveform_mae": 0.008058309399833282,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-pause": {
+          "active_count": 44,
+          "absent_count": 0,
+          "input_sisnr_db": 4.857333734250543,
+          "output_sisnr_db": 4.2162059360945765,
+          "sisnri_db": -0.6411277981559661,
+          "gain_db": -0.8962344070241073,
+          "waveform_mae": 0.01174430921938355,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": 0.009028797770125411,
+          "pause_annotated_count": 44
+        }
+      }
+    },
+    "interference": {
+      "count": 439,
+      "active_count": 439,
+      "input_sisnr_db": 4.024720016570978,
+      "output_sisnr_db": 2.6691463427418727,
+      "sisnri_db": -1.3555736738291053,
+      "gain_db": -0.9000027161575341,
+      "improved_count": 212
+    },
+    "strong_target": {
+      "count": 233,
+      "active_count": 233,
+      "input_sisnr_db": 11.193803095510589,
+      "output_sisnr_db": 7.917405283822011,
+      "sisnri_db": -3.276397811688579,
+      "gain_db": -1.2423355370187845,
+      "improved_count": 76
+    }
+  },
+  "case00_epoch46_dev_scenario": {
+    "summary": {
+      "active_count": 461,
+      "absent_count": 51,
+      "input_sisnr_db": 15.401191011498229,
+      "output_sisnr_db": 10.34631654432896,
+      "sisnri_db": -5.05487446716927,
+      "gain_db": -9.977327857719208,
+      "waveform_mae": 0.01757336031734426,
+      "absent_output_rms": 0.00832731232832588,
+      "absent_output_to_mix_db": -12.981156082303647,
+      "pause_output_rms": 0.005593051987082791,
+      "pause_annotated_count": 94
+    },
+    "groups": {
+      "sir_db": {
+        "-0.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": 0.01740583648475317,
+          "output_sisnr_db": 3.730932830617978,
+          "sisnri_db": 3.713526994133225,
+          "gain_db": -10.000826433896627,
+          "waveform_mae": 0.017499660428326864,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-10.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -10.103725213270922,
+          "output_sisnr_db": -4.341180035701165,
+          "sisnri_db": 5.7625451775697565,
+          "gain_db": -2.6718441593694084,
+          "waveform_mae": 0.007210962026594923,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-20.0": {
+          "active_count": 13,
+          "absent_count": 0,
+          "input_sisnr_db": -19.49046090932993,
+          "output_sisnr_db": -16.48688485072209,
+          "sisnri_db": 3.003576058607835,
+          "gain_db": 7.2979326202814,
+          "waveform_mae": 0.005255169665011076,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "-5.0": {
+          "active_count": 92,
+          "absent_count": 10,
+          "input_sisnr_db": 12.959778399571128,
+          "output_sisnr_db": 4.980714709295527,
+          "sisnri_db": -7.979063690275602,
+          "gain_db": -7.87532399068962,
+          "waveform_mae": 0.017781501691585974,
+          "absent_output_rms": 0.019305460292678836,
+          "absent_output_to_mix_db": -13.123675410211058,
+          "pause_output_rms": 0.01380542385353086,
+          "pause_annotated_count": 18
+        },
+        "0.0": {
+          "active_count": 79,
+          "absent_count": 11,
+          "input_sisnr_db": 17.096322849833502,
+          "output_sisnr_db": 8.44796728721195,
+          "sisnri_db": -8.648355562621552,
+          "gain_db": -10.346591995258871,
+          "waveform_mae": 0.018572019784463736,
+          "absent_output_rms": 0.010217586350410581,
+          "absent_output_to_mix_db": -12.746171188181972,
+          "pause_output_rms": 0.008324663223902462,
+          "pause_annotated_count": 16
+        },
+        "10.0": {
+          "active_count": 76,
+          "absent_count": 14,
+          "input_sisnr_db": 16.407029227206582,
+          "output_sisnr_db": 14.477284318522402,
+          "sisnri_db": -1.9297449086841785,
+          "gain_db": -11.971090082864368,
+          "waveform_mae": 0.01822386592883911,
+          "absent_output_rms": 0.004080513169771661,
+          "absent_output_to_mix_db": -13.19220505645774,
+          "pause_output_rms": 0.002625151425688629,
+          "pause_annotated_count": 23
+        },
+        "20.0": {
+          "active_count": 81,
+          "absent_count": 8,
+          "input_sisnr_db": 27.032638950112425,
+          "output_sisnr_db": 21.924822995692125,
+          "sisnri_db": -5.1078159544203015,
+          "gain_db": -12.19636377480714,
+          "waveform_mae": 0.01701083903511365,
+          "absent_output_rms": 0.0011085772424226027,
+          "absent_output_to_mix_db": -12.899846615674251,
+          "pause_output_rms": 0.0006163505022414029,
+          "pause_annotated_count": 18
+        },
+        "5.0": {
+          "active_count": 94,
+          "absent_count": 8,
+          "input_sisnr_db": 16.010213892510595,
+          "output_sisnr_db": 10.533140466568318,
+          "sisnri_db": -5.477073425942279,
+          "gain_db": -11.596358105678565,
+          "waveform_mae": 0.019636003379809096,
+          "absent_output_rms": 0.0066561342058913744,
+          "absent_output_to_mix_db": -12.838084913696417,
+          "pause_output_rms": 0.003820097579400202,
+          "pause_annotated_count": 19
+        }
+      },
+      "scenario": {
+        "overlap": {
+          "active_count": 379,
+          "absent_count": 0,
+          "input_sisnr_db": 4.171093299031186,
+          "output_sisnr_db": 7.477805866260268,
+          "sisnri_db": 3.306712567229082,
+          "gain_db": -9.64970594471647,
+          "waveform_mae": 0.018033826044247067,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-absent": {
+          "active_count": 0,
+          "absent_count": 51,
+          "input_sisnr_db": null,
+          "output_sisnr_db": null,
+          "sisnri_db": null,
+          "gain_db": null,
+          "waveform_mae": null,
+          "absent_output_rms": 0.00832731232832588,
+          "absent_output_to_mix_db": -12.981156082303647,
+          "pause_output_rms": 0.00832731235662804,
+          "pause_annotated_count": 51
+        },
+        "target-only": {
+          "active_count": 39,
+          "absent_count": 0,
+          "input_sisnr_db": 133.68502103365384,
+          "output_sisnr_db": 37.077030084072014,
+          "sisnri_db": -96.60799094958183,
+          "gain_db": -12.60140547934209,
+          "waveform_mae": 0.01651793401927138,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": null,
+          "pause_annotated_count": 0
+        },
+        "target-pause": {
+          "active_count": 43,
+          "absent_count": 0,
+          "input_sisnr_db": 7.102066875706146,
+          "output_sisnr_db": 11.385100705679072,
+          "sisnri_db": 4.283033829972927,
+          "gain_db": -10.484994782945792,
+          "waveform_mae": 0.014472083924987982,
+          "absent_output_rms": null,
+          "absent_output_to_mix_db": null,
+          "pause_output_rms": 0.0023500920139012185,
+          "pause_annotated_count": 43
+        }
+      }
+    },
+    "interference": {
+      "count": 422,
+      "active_count": 422,
+      "input_sisnr_db": 4.469747004711336,
+      "output_sisnr_db": 7.875942544210526,
+      "sisnri_db": 3.4061955394991896,
+      "gain_db": -9.734818314488649,
+      "improved_count": 365
+    },
+    "strong_target": {
+      "count": 234,
+      "active_count": 234,
+      "input_sisnr_db": 11.408938790997889,
+      "output_sisnr_db": 13.79271421677027,
+      "sisnri_db": 2.3837754257723818,
+      "gain_db": -11.881337414359317,
+      "improved_count": 199
+    }
+  }
+}

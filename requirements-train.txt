@@ -1,0 +1,6 @@
+-r requirements.txt
+pandas>=2.0,<3
+scipy>=1.11,<1.13
+# Legacy WhamRoom uses the pre-0.8 Source.get_rir API. Use Python 3.10;
+# building may require a C++ compiler and Python development headers.
+pyroomacoustics==0.7.3

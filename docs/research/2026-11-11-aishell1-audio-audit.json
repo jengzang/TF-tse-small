@@ -1,0 +1,110 @@
+{
+  "checked": 141925,
+  "seconds": 275.9575912952423,
+  "method": "full decode, original paths read-only; invalid <=1e-8 RMS; <1e-5 review only",
+  "issues": [
+    {
+      "split": "dev",
+      "speaker": "S0731",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0731/dev/S0731/BAC009S0731W0379.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "dev",
+      "speaker": "S0756",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0756/dev/S0756/BAC009S0756W0343.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0048",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0048/train/S0048/BAC009S0048W0490.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0118",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0118/train/S0118/BAC009S0118W0478.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0132",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0132/train/S0132/BAC009S0132W0223.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0132",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0132/train/S0132/BAC009S0132W0398.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0146",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0146/train/S0146/BAC009S0146W0472.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0195",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0195/train/S0195/BAC009S0195W0442.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0206",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0206/train/S0206/BAC009S0206W0461.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0217",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0217/train/S0217/BAC009S0217W0321.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0217",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0217/train/S0217/BAC009S0217W0325.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0219",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0219/train/S0219/BAC009S0219W0495.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0348",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0348/train/S0348/BAC009S0348W0486.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0422",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0422/train/S0422/BAC009S0422W0262.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0423",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0423/train/S0423/BAC009S0423W0203.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0521",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0521/train/S0521/BAC009S0521W0226.wav",
+      "reason": "zero_frames"
+    },
+    {
+      "split": "train",
+      "speaker": "S0601",
+      "path": "/public/share/smiip/jinbopeng/datasets/aishell1/data_aishell/wav/S0601/train/S0601/BAC009S0601W0324.wav",
+      "reason": "zero_frames"
+    }
+  ],
+  "enrollment_issues": []
+}

@@ -1,0 +1,90 @@
+{
+  "splits": {
+    "test": {
+      "librispeech": {
+        "speakers": 73,
+        "recordings": 5559
+      },
+      "aishell1": {
+        "speakers": 20,
+        "recordings": 7176
+      },
+      "aishell2": {
+        "speakers": 199,
+        "recordings": 103300
+      }
+    },
+    "dev": {
+      "librispeech": {
+        "speakers": 73,
+        "recordings": 5567
+      },
+      "aishell1": {
+        "speakers": 40,
+        "recordings": 14331
+      },
+      "aishell2": {
+        "speakers": 398,
+        "recordings": 204746
+      }
+    },
+    "train": {
+      "librispeech": {
+        "speakers": 2338,
+        "recordings": 281241
+      },
+      "aishell1": {
+        "speakers": 340,
+        "recordings": 120418
+      },
+      "aishell2": {
+        "speakers": 1393,
+        "recordings": 701166
+      }
+    }
+  },
+  "overlap": {
+    "test_dev": {
+      "speakers": 0,
+      "recording_paths": 0
+    },
+    "test_train": {
+      "speakers": 0,
+      "recording_paths": 0
+    },
+    "dev_train": {
+      "speakers": 0,
+      "recording_paths": 0
+    }
+  },
+  "enrollment_source_overlap": {
+    "test": 0,
+    "dev": 0,
+    "train": 0
+  },
+  "dev_rendered": {
+    "examples": 512,
+    "source_or_enrollment_paths_in_train": 0,
+    "paths_outside_own_split": 0,
+    "enrollment_in_mixture": 0
+  },
+  "test_rendered": {
+    "examples": 512,
+    "source_or_enrollment_paths_in_train": 0,
+    "paths_outside_own_split": 0,
+    "enrollment_in_mixture": 0
+  },
+  "active_training_provenance": [
+    {
+      "case": "case00_small_gridnet",
+      "training_index_matches": true,
+      "validation_mix_path": "/public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/mix.scp"
+    },
+    {
+      "case": "case01_wide_gridnet",
+      "training_index_matches": true,
+      "validation_mix_path": "/public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/mix.scp"
+    }
+  ],
+  "scope": "speaker IDs and recording paths; not whole-corpus waveform content deduplication"
+}

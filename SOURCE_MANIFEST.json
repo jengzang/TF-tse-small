@@ -1,0 +1,131 @@
+{
+  "source": "/Users/jengzang/CodeProject/audio-intelligence/TF_TSE",
+  "date": "2026-11-10",
+  "mode": "selected byte-identical copies; source preserved",
+  "files": [
+    {
+      "path": "train_dp_multi.py",
+      "sha256": "ab7ed1f61fdfa24a4d072ef05eb8ba7741555c35f2084b225d746cd3d559339c"
+    },
+    {
+      "path": "infer.py",
+      "sha256": "93d4ef872868da05d9c32e406b621ceb29fa52815a716b0554e4656acf08cebf"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "b01c1eb1086062b16b541354325187c147fdaf9615c2c9ac63c164985299da5a"
+    },
+    {
+      "path": "requirements-train.txt",
+      "sha256": "14ad4f8b4b178cc5a38fcb86fe41b30c907b9cf5e4f0680b24245622875b6e5e"
+    },
+    {
+      "path": "config/config_tfgridnet_all.yaml",
+      "sha256": "0b4bc776f7ca57eecd3625f89fb4f50757c9e4135bec1d0369f9a8ba370ee7da"
+    },
+    {
+      "path": "config/config_batchnorm2d_corrected_20261104.yaml",
+      "sha256": "1c5b3def77f32823e1432b45e379d37b109f00b79e5b2c0d7d098a106c6e2439"
+    },
+    {
+      "path": "config/config_aishell2_bundle.yaml",
+      "sha256": "a7744330067778398908bfd3e87730817674c3107923e57edf5d39dfde9bb7b3"
+    },
+    {
+      "path": "models/model_TFGridNet_k1_stage2_multi_v5.py",
+      "sha256": "8c77071a7f7b34df48f11ae312190d221ef30d8e2d4b720346db8b52d0931850"
+    },
+    {
+      "path": "models/model_TFGridNet_k1_stage2_multi_v5_bn.py",
+      "sha256": "b1ea8a98128dff62778708056516fbb4cd316c4a04ba152511fcdb47e1d9169c"
+    },
+    {
+      "path": "models/local/dcunet.py",
+      "sha256": "c20e57440cd866840698edf320abc14c74bbc886ade8237258d6c0e4302a3a6a"
+    },
+    {
+      "path": "models/local/get_layer_from_string.py",
+      "sha256": "31acd3c607f6eba7c5423fd97295ebdfd3f588f8e978b3415a4b0f9f3613eb5c"
+    },
+    {
+      "path": "dataset/data_wsj0_rir_pyroom_v7.py",
+      "sha256": "69c0ec2e888db10bce7440135f6476ed23a5f7d9e2f69de1180383a3e02c6a69"
+    },
+    {
+      "path": "dataset/bundle_data.py",
+      "sha256": "eb8190840a401c84d2aa177cac9441de650784e1df9dd23ee581131820293bcf"
+    },
+    {
+      "path": "trainer/trainer_dp_v1.py",
+      "sha256": "9afdea0979e8e93920fa33e5524c060f78e19e6bbb7ff6c006b1855cb9cd4a3a"
+    },
+    {
+      "path": "utils/feature.py",
+      "sha256": "e80466fc092c1ea067066c55d73e68ffeef075bfebf487d676f9f1d37b381e11"
+    },
+    {
+      "path": "utils/wham_room.py",
+      "sha256": "cc462def497b579553e987fdabe09db612c6cf5be124a4fcf7176060c2843bba"
+    },
+    {
+      "path": "utils/whamr_utils.py",
+      "sha256": "bab990e23ceae69da7c05832f864844a66ee6decd0691eb633fed05415102a37"
+    },
+    {
+      "path": "utils/loss/losses.py",
+      "sha256": "376300a811cfebd4694957ea0398b7c9ce91b80f2a3c65d6f21f8cc61a78415f"
+    },
+    {
+      "path": "scripts/cache_bundle_embeddings.py",
+      "sha256": "f6a3ce800eb9314b79f56170e8d30164ade3515756a817f508bfdb0a885bd50e"
+    },
+    {
+      "path": "emb_extract/inference.py",
+      "sha256": "5e42e55249fc951bad16f435a5ad011fc994480aedb866e048dd76f04c94d3df"
+    },
+    {
+      "path": "emb_extract/resnet34_yk/feat.py",
+      "sha256": "c707875ee2ce3701225ab73d755de0a1c31a17303826961ca562df2c96a0e0d7"
+    },
+    {
+      "path": "emb_extract/resnet34_yk/front_resnet.py",
+      "sha256": "79cd68b80e8c1cb4f0e0c2d87615241697c6c1f86b94c84b894bc4494616e61d"
+    },
+    {
+      "path": "emb_extract/resnet34_yk/inference.py",
+      "sha256": "c421e1727cab26f18c5b425795e832ea25f7aba7cd841bebbdc87c82a3c54b1f"
+    },
+    {
+      "path": "emb_extract/resnet34_yk/model_spk.py",
+      "sha256": "31cdad5da20d1d723e736128d4ed11d0328524177ef2013080bf75b115c2a736"
+    },
+    {
+      "path": "emb_extract/resnet34_yk/pooling.py",
+      "sha256": "a2eb992e12aa3d6ca4bc39e32a1f8614e1ee57816c402537ce4be3660898a55c"
+    },
+    {
+      "path": "tests/test_inference.py",
+      "sha256": "486ac4f870a8f389077848a410e96b284ac8f45ae6fc6be64bd81b964086ad3d"
+    },
+    {
+      "path": "tests/test_training_data.py",
+      "sha256": "837c527addaacddf31db4b1102480f39149a39307da938b8fe11f3e8e4e8de73"
+    },
+    {
+      "path": "tests/test_training_precision.py",
+      "sha256": "644aa8cfeb7d780341f388055c2dafa5912e351ff702f2872a2e4b8e9cd2b649"
+    },
+    {
+      "path": "tests/test_bundle_dataset.py",
+      "sha256": "cf74ed01e34e9621127c9d169dea73139e870b2224747fae0010f30525d280eb"
+    },
+    {
+      "path": "tests/test_batchnorm_variant.py",
+      "sha256": "02721231e91c569021f108a177b01984d668c11ae1c555714f12ffa406b49454"
+    },
+    {
+      "path": "tests/test_padding_aware.py",
+      "sha256": "c4750db1580d51349cf2488bb95eff713f710f9b3c9ad348062fa4ff84353bbe"
+    }
+  ]
+}
