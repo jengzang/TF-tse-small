@@ -1,0 +1,91 @@
+# Independent single-variable mono case. Data/runtime overrides: scripts/run_case.py.
+optimizer: !name:torch.optim.Adam
+  lr: 0.001
+  weight_decay: 0
+checkpoint: 1
+continue_from: ''
+init_from: 
+  /public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/pilot/case05_wide_film/temp_best.pth.tar
+max_norm: 5
+print_freq: 100
+name: cases/dry_bf16_20261110/formal/case05_wide_film
+seed: 3407
+device: cuda:0
+precision: bf16
+backend_acceleration: true
+backend_benchmark: true
+backend_deterministic: false
+epochs: 50
+max_steps:
+batch_size: 32
+num_workers: 4
+persistent_workers: true
+prefetch_factor: 2
+validation_batch_size: 32
+gradient_accumulation_steps: 2
+duration: 4.0
+sample_rate: 16000
+num_spks: 1
+input_channels: 1
+dataset_type: corpus_mix
+corpus_index: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/index.json
+corpus_embedding_cache: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/embeddings.pt
+train_epoch_size: 32000
+mono_policy: mono
+bundle_root:
+ref_duration: 2.9
+bundle_train_mix: data/mono/train_mix.scp
+bundle_train_ref: data/mono/train_ref.scp
+bundle_train_aux: data/mono/train_aux.scp
+bundle_dev_mix: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/mix.scp
+bundle_dev_ref: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/ref.scp
+bundle_dev_aux: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/aux.scp
+bundle_train_cache: data/mono/train_embeddings.pt
+bundle_dev_cache: 
+  /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/embeddings.pt
+legacy_positive_clamp: false
+padding_aware_loss: true
+target_absent_loss: true
+STFT: &id001 !new:utils.feature.STFT
+  n_fft: 512
+  hop_length: 320
+  win_length: 512
+iSTFT: &id002 !new:utils.feature.iSTFT
+  n_fft: 512
+  hop_length: 320
+  win_length: 512
+STFT512: !new:utils.feature.STFT
+  n_fft: 512
+  hop_length: 256
+  win_length: 512
+STFT256: !new:utils.feature.STFT
+  n_fft: 256
+  hop_length: 128
+  win_length: 256
+STFT128: !new:utils.feature.STFT
+  n_fft: 128
+  hop_length: 64
+  win_length: 128
+MaskNet: &id003 !new:models.model_tfgridnet_cases.Tar_Model
+  stft: *id001
+  istft: *id002
+  feature_dim: 257
+  embd_dim: 256
+  fc_dim: 64
+  emb_ks: 1
+  emb_hs: 1
+  num_layers: 3
+  lstm_hidden_units: 88
+  time_layout: fixed
+  variant: film
+  condition_dim: 32
+  fla_dim: 256
+  fla_heads: 4
+  time_bilstm_hidden: 64
+modules:
+  masknet: *id003

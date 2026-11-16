@@ -86,8 +86,13 @@ def main(argv=None):
     with open(args.config, encoding='utf-8') as handle:
         settings = load_hyperpyyaml(handle)
     mixture = read_mixture(args.mix, channels=settings.get('input_channels', 2))
-    embedding = (read_embedding(args.embedding) if args.embedding
-                 else read_enrollment(args.enroll, args.speaker_checkpoint))
+    if settings.get('enrollment_mode')=='waveform':
+        if not args.enroll:parser.error('Raw-enrollment model requires --enroll')
+        from utils.enrollment import load_enrollment_waveform
+        embedding=load_enrollment_waveform(args.enroll,int(settings.get('ref_duration',2.9)*16000))[None]
+    else:
+        embedding = (read_embedding(args.embedding) if args.embedding
+                     else read_enrollment(args.enroll, args.speaker_checkpoint))
     model = settings['modules']['masknet']
     if settings['sample_rate'] != 16000:
         raise ValueError('This baseline requires sample_rate=16000')

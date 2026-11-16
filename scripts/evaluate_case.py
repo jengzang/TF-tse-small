@@ -40,10 +40,11 @@ def main(argv=None):
     if device.type not in ('cpu','cuda'):p.error('Use cpu or cuda')
     mix,ref,aux=map(read_scp,(a.mix_scp,a.ref_scp,a.aux_scp))
     if set(mix)!=set(ref) or set(mix)!=set(aux):raise ValueError('mix/ref/aux IDs must match')
-    embeddings=torch.load(a.embedding_cache,map_location='cpu',weights_only=True)['embeddings']
-    if set(mix)-set(embeddings):raise ValueError('Embedding cache misses evaluation IDs')
-    metadata=json.loads(a.metadata.read_text()) if a.metadata else {}
     with a.config.open() as f:config=load_hyperpyyaml(f)
+    raw_enrollment=config.get('enrollment_mode')=='waveform'
+    embeddings={} if raw_enrollment else torch.load(a.embedding_cache,map_location='cpu',weights_only=True)['embeddings']
+    if not raw_enrollment and set(mix)-set(embeddings):raise ValueError('Embedding cache misses evaluation IDs')
+    metadata=json.loads(a.metadata.read_text()) if a.metadata else {}
     if config['sample_rate']!=16000 or config.get('input_channels')!=1:raise ValueError('Evaluation requires mono 16k config')
     model=config['MaskNet'];load_weights(model,a.checkpoint);model.to(device).eval()
     def read(path,scp):
@@ -56,8 +57,14 @@ def main(argv=None):
     for uid in mix:
         x=read(mix[uid],a.mix_scp);target=read(ref[uid],a.ref_scp)
         if x.shape!=target.shape:raise ValueError(uid+': mix/ref length mismatch')
-        embedding=embeddings[uid]
-        if embedding.shape!=(1,256):raise ValueError(uid+': embedding must be [1,256]')
+        if raw_enrollment:
+            from utils.enrollment import load_enrollment_waveform
+            path=resolve_bundle_path(aux[uid],config.get('bundle_root'))
+            if not path.is_absolute():path=a.aux_scp.resolve().parent/path
+            embedding=load_enrollment_waveform(path,int(config.get('ref_duration',2.9)*16000))
+        else:
+            embedding=embeddings[uid]
+            if embedding.shape!=(1,256):raise ValueError(uid+': embedding must be [1,256]')
         with torch.inference_mode(),precision_context(device,a.precision):
             prediction=model(x[:,None,:],embedding.to(device)[None,:,:]).float()
         if prediction.shape!=target.shape or not prediction.isfinite().all():raise RuntimeError(uid+': invalid output')

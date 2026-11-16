@@ -42,7 +42,9 @@ def make_speaker_encoder():
 class BundleDataset(Dataset):
     def __init__(self, mix_scp, ref_scp, aux_scp, bundle_root=None, duration=3.9,
                  sample_rate=16000, mono_policy='reject', training=False, ref_duration=2.9, max_items=None, embedding_cache=None,
-                 read_attempts=3, retry_delay=0.5, return_valid_length=False):
+                 read_attempts=3, retry_delay=0.5, return_valid_length=False, enrollment_mode='embedding'):
+        if enrollment_mode not in ('embedding','waveform'):raise ValueError('Invalid enrollment mode')
+        self.enrollment_mode=enrollment_mode
         self.mix, self.ref, self.aux = map(read_scp, (mix_scp, ref_scp, aux_scp))
         if set(self.mix) != set(self.ref) or set(self.mix) != set(self.aux):
             raise ValueError('SCP IDs must match exactly between mix, ref and aux')
@@ -67,7 +69,7 @@ class BundleDataset(Dataset):
         self.return_valid_length = return_valid_length
         self.encoder = None
         self.embeddings = None
-        if embedding_cache:
+        if embedding_cache and enrollment_mode=='embedding':
             cache = torch.load(embedding_cache, map_location='cpu', weights_only=True)
             self.embeddings = cache['embeddings']
             missing = set(self.ids) - set(self.embeddings)
@@ -119,7 +121,10 @@ class BundleDataset(Dataset):
         ref = np.pad(ref, (0, self.length-valid))
         mask = np.zeros(self.length, dtype=np.float32)
         mask[:valid] = 1
-        if self.embeddings is None:
+        if self.enrollment_mode=='waveform':
+            from utils.enrollment import load_enrollment_waveform
+            emb=load_enrollment_waveform(self._path(self.aux[uid]),self.ref_length)
+        elif self.embeddings is None:
             aux = aux[0, -self.ref_length:]
             if self.encoder is None:
                 self.encoder = make_speaker_encoder()

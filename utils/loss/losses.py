@@ -97,3 +97,12 @@ def normalized_waveform_loss(estimate, target, mixture, lengths):
     power = (reference.square() * mask).sum(-1) / count
     error = ((estimate - target).square() * mask).sum(-1) / count
     return (error / power.clamp_min(1e-8)).mean()
+
+
+def normalized_absence_loss(estimate,target,mixture,lengths):
+    mask=_valid_mask(estimate,lengths).to(estimate.dtype)
+    absent=~target_present(target,lengths)
+    if not absent.any():return estimate.sum()*0
+    output=(estimate.square()*mask).sum(-1)/lengths.to(estimate)
+    reference=(mixture.square()*mask).sum(-1)/lengths.to(estimate)
+    return (output[absent]/reference[absent].clamp_min(1e-8)).mean()

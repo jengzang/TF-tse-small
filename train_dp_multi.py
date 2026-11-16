@@ -42,8 +42,8 @@ def save_source_snapshot(checkpoint_dir):
     files += ['models/model_tfgridnet_cases.py', 'models/vendor/fla/linear_attn.py',
               'models/vendor/fla/LICENSE', 'models/vendor/fla/SOURCE.json',
               'utils/case_registry.py', 'dataset/corpus_mix.py', 'scripts/run_case.py',
-              'scripts/inspect_cases.py', 'scripts/evaluate_case.py', 'scripts/run_next_cases.py',
-              'dataset/corpus_mix.py', 'utils/audio_cache.py', 'scripts/prepare_corpora.py', 'scripts/run_server_queue.py']
+              'scripts/inspect_cases.py', 'scripts/evaluate_case.py', 'scripts/run_next_cases.py', 'models/model_paper_ablation.py', 'utils/enrollment.py', 'scripts/run_paper_queue.py', 'utils/paper_cases.py', 'scripts/run_noisy_followup.py', 'scripts/prepare_aishell2_noisy.py',
+              'dataset/corpus_mix.py', 'dataset/aishell2_noisy.py', 'utils/audio_cache.py', 'scripts/prepare_corpora.py', 'scripts/run_server_queue.py']
     folder = Path(checkpoint_dir) / 'source_snapshot'
     folder.mkdir(parents=True, exist_ok=True)
     manifest = {}
@@ -72,26 +72,32 @@ def build_data_loaders(config, device):
     scored on identical mixtures. Worker-only options are omitted for workers=0.
     """
     kind = config.get('dataset_type', 'legacy')
-    if kind not in ('bundle', 'corpus_mix', 'legacy'):
+    if kind not in ('bundle', 'corpus_mix', 'aishell2_noisy', 'legacy'):
         raise ValueError('dataset_type must be bundle, corpus_mix or legacy')
     sampler = None
     options = dict(bundle_root=config.get('bundle_root'), duration=config['duration'],
                    sample_rate=config['sample_rate'], mono_policy=config.get('mono_policy','reject'),
                    ref_duration=config.get('ref_duration', 2.9))
-    if kind == 'corpus_mix':
+    if kind in ('corpus_mix','aishell2_noisy'):
         from dataset.corpus_mix import CorpusMixDataset, EpochIndexSampler
         if config['sample_rate'] != 16000 or config.get('mono_policy') != 'mono':
             raise ValueError('corpus_mix requires 16k mono')
-        trainset = CorpusMixDataset(config['corpus_index'], config['corpus_embedding_cache'],
+        dataset_cls=CorpusMixDataset
+        noisy_options={}
+        if kind=='aishell2_noisy':
+            from dataset.aishell2_noisy import AIShell2NoisyDataset
+            dataset_cls=AIShell2NoisyDataset
+            noisy_options['noise_index']=config['noise_index']
+        trainset = dataset_cls(config['corpus_index'], config['corpus_embedding_cache'],
                                    split='train',epoch_size=config['train_epoch_size'],
-                                   duration=config['duration'],seed=config.get('seed',3407),training=True)
+                                   duration=config['duration'],seed=config.get('seed',3407),training=True,enrollment_mode=config.get('enrollment_mode','embedding'),ref_duration=config['ref_duration'],**noisy_options)
         sampler = EpochIndexSampler(trainset)
     elif kind == 'bundle':
         from dataset.bundle_data import BundleDataset
         trainset = BundleDataset(config['bundle_train_mix'], config['bundle_train_ref'],
                                  config['bundle_train_aux'], training=True,
                                  max_items=config.get('bundle_train_limit'),
-                                 embedding_cache=config.get('bundle_train_cache'), **options)
+                                 embedding_cache=config.get('bundle_train_cache'), enrollment_mode=config.get('enrollment_mode','embedding'), **options)
     else:
         from dataset.data_wsj0_rir_pyroom_v7 import tr_wsj_mix_dataset
         trainset = tr_wsj_mix_dataset(
@@ -115,9 +121,9 @@ def build_data_loaders(config, device):
     trainloader = DataLoader(trainset,batch_size=config['batch_size'],shuffle=sampler is None,
                              sampler=sampler,num_workers=workers,pin_memory=device.type=='cuda',
                              **worker_options)
-    if kind in ('bundle','corpus_mix'):
+    if kind in ('bundle','corpus_mix','aishell2_noisy'):
         from dataset.bundle_data import BundleDataset
-        valid_options = dict(options, duration=config.get('bundle_dev_duration',config['duration']))
+        valid_options = dict(options, duration=config.get('bundle_dev_duration',config['duration']),enrollment_mode=config.get('enrollment_mode','embedding'))
         validset = BundleDataset(config['bundle_dev_mix'],config['bundle_dev_ref'],
                                  config['bundle_dev_aux'],training=False,
                                  max_items=config.get('bundle_dev_limit'),

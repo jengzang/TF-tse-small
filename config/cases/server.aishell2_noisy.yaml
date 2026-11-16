@@ -1,0 +1,11 @@
+bundle_dev_aux: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/dev/aux.scp
+bundle_dev_cache: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/dev/embeddings.pt
+bundle_dev_mix: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/dev/mix.scp
+bundle_dev_ref: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/dev/ref.scp
+bundle_root: null
+corpus_embedding_cache: /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/embeddings.pt
+corpus_index: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/index.json
+dataset_type: aishell2_noisy
+noise_index: /public/home/yangzheng123/project/speech_tftse/data/aishell2_noisy_20261116/noise_index.json
+ref_duration: 2.9
+train_epoch_size: 32000

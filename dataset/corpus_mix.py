@@ -15,7 +15,12 @@ CORPORA = ('librispeech', 'aishell1', 'aishell2')
 
 class CorpusMixDataset(Dataset):
     def __init__(self, index_path, embedding_cache, split='train', epoch_size=32000,
-                 duration=4, seed=3407, training=True):
+                 duration=4, seed=3407, training=True, enrollment_mode='embedding', ref_duration=2.9, corpora=None, sir_range=None):
+        if enrollment_mode not in ('embedding','waveform'):raise ValueError('Invalid enrollment mode')
+        self.corpora = tuple(corpora) if corpora is not None else CORPORA
+        self.sir_range = sir_range
+        if not self.corpora or set(self.corpora)-set(CORPORA):raise ValueError('Invalid corpus selection')
+        self.enrollment_mode=enrollment_mode;self.ref_length=int(ref_duration*16000)
         raw_index = Path(index_path).read_bytes()
         index_hash = hashlib.sha256(raw_index).hexdigest()
         self.index = json.loads(raw_index)
@@ -33,7 +38,7 @@ class CorpusMixDataset(Dataset):
         if self.n < 16000:
             raise ValueError('duration must be at least one second')
         cache = (torch.load(embedding_cache, map_location='cpu', weights_only=False)
-                 if isinstance(embedding_cache, (str, Path)) else embedding_cache)
+                 if isinstance(embedding_cache, (str, Path)) else embedding_cache) if enrollment_mode=='embedding' else {'embeddings':{}}
         expected_hash = cache.get('metadata', {}).get('index_sha256')
         if expected_hash and expected_hash != index_hash:
             raise ValueError('embedding cache index hash does not match enrollment index')
@@ -42,7 +47,7 @@ class CorpusMixDataset(Dataset):
         self.speakers = self.index['splits'][split]
         self.keys = []
         self.sources = {}
-        for c in CORPORA:
+        for c in self.corpora:
             if not self.speakers.get(c):
                 raise ValueError(f'missing speakers for {split}/{c}')
             for s, paths in sorted(self.speakers[c].items()):
@@ -58,7 +63,7 @@ class CorpusMixDataset(Dataset):
                         usable.append(p)
                 if not usable:
                     raise ValueError(f'no independent source for {key}')
-                emb = torch.as_tensor(self.embeddings[key])
+                emb = torch.as_tensor(self.embeddings[key]) if enrollment_mode=='embedding' else torch.ones(1,256)
                 if emb.shape != (1,256) or not torch.isfinite(emb).all() or not torch.any(emb != 0):
                     raise ValueError(f'embedding shape for {key} must be finite, nonzero [1,256]')
                 self.sources[key] = sorted(usable)
@@ -146,10 +151,10 @@ class CorpusMixDataset(Dataset):
         epoch, index = int(epoch), int(index)
         if not self.training:
             epoch = 0
-        pair = not self.training and index % 8 < 2
+        pair = self.sir_range is None and not self.training and index % 8 < 2
         base = index - index % 8 if pair else index
         rng = self._rng(epoch, base)
-        corpus = CORPORA[base % 3]
+        corpus = self.corpora[base % len(self.corpora)]
         candidates = sorted(f'{corpus}:{s}' for s in self.speakers[corpus])
         a = candidates[int(rng.integers(len(candidates)))]
         others = [s for s in self.keys if s != a]
@@ -164,7 +169,7 @@ class CorpusMixDataset(Dataset):
             start = int(rng.integers(self.n-length+1))
             xa[start:start+length] = 0
             pauses = [[start,start+length]]
-        sir = max(float(rng.normal(5,10)), -5) if self.training else float([-5,0,5,10,20][base%5])
+        sir = (float(rng.uniform(*self.sir_range)) if self.training else float(base % 6)) if self.sir_range is not None else (max(float(rng.normal(5,10)), -5) if self.training else float([-5,0,5,10,20][base%5]))
         ar, br = self._rms(xa), self._rms(xb)
         gain = ar / br * 10**(-sir/20) if br > 0 else 0.
         xb = xb * gain
@@ -191,7 +196,11 @@ class CorpusMixDataset(Dataset):
             ref = np.zeros(self.n,dtype=np.float32)
         mix = torch.from_numpy((mix*scale).astype(np.float32)).unsqueeze(0)
         ref = torch.from_numpy((ref*scale).astype(np.float32))
-        emb = torch.as_tensor(self.embeddings[target_key],dtype=torch.float32).clone()
+        if self.enrollment_mode=='waveform':
+            from utils.enrollment import load_enrollment_waveform
+            emb=load_enrollment_waveform(self.enrollments[target_key]['path'],self.ref_length)
+        else:
+            emb = torch.as_tensor(self.embeddings[target_key],dtype=torch.float32).clone()
         metadata = {
             'sample_id': f'{self.split}:{epoch}:{index}', 'epoch':epoch, 'index':index,
             'corpus':target_key.split(':',1)[0], 'target_speaker':target_key,
@@ -202,7 +211,7 @@ class CorpusMixDataset(Dataset):
             'active_speakers':active,
             'target_source_path':None if scenario == 'target-absent' else (ib['path'] if reverse else ia['path']),
             'sir_db':-sir if reverse else sir, 'base_sir_db':sir,
-            'sir_distribution':'clipped_normal_5_10' if self.training else 'fixed_grid',
+            'sir_distribution':('uniform_0_5' if self.training else 'fixed_0_5_grid') if self.sir_range is not None else ('clipped_normal_5_10' if self.training else 'fixed_grid'),
             'scenario':str(scenario), 'pair_id':f'{self.split}:{base}' if pair else None,
             'pause_intervals':pauses,
             'target_active_intervals_samples': ([] if scenario == 'target-absent' else

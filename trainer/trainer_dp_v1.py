@@ -85,6 +85,9 @@ class Trainer(object):
         self.model.to(self.device)
         # Preserve historical experiments unless a new config opts out.
         self.legacy_positive_clamp = config.get('legacy_positive_clamp', True)
+        self.spectral_weight=float(config.get('spectral_weight',1.))
+        self.relative_absence_weight=float(config.get('relative_absence_weight',0.))
+        self.data_epoch_offset=int(config.get('data_epoch_offset',0))
         self.config_waveform_weight = float(config.get('normalized_waveform_weight', 0.))
         self.padding_aware_loss = config.get('padding_aware_loss', False)
         self.target_absent_loss = config.get('target_absent_loss', False)
@@ -178,7 +181,7 @@ class Trainer(object):
         samples = 0
         self.optimizer.zero_grad(set_to_none=True)
         if hasattr(getattr(data_loader, "sampler", None), "set_epoch"):
-            data_loader.sampler.set_epoch(epoch)
+            data_loader.sampler.set_epoch(epoch+self.data_epoch_offset)
 
         for i, (data) in enumerate(data_loader):
             if self.max_steps is not None and self.global_step >= self.max_steps:
@@ -213,7 +216,7 @@ class Trainer(object):
                     estimate_source, source, lengths, (self.stft512, self.stft256, self.stft128))
                 # Bundle mask describes padding, not speech activity: do not treat
                 # padding as a VAD-derived non-target region for the old pw loss.
-                loss = sisnr_loss + spectral_loss
+                loss = sisnr_loss + self.spectral_weight*spectral_loss
                 if self.config_waveform_weight:
                     reference_mix = mixture[:, 0, :source.shape[-1]] if mixture.ndim == 3 else mixture[:, 0, 0, :source.shape[-1]]
                     loss = loss + self.config_waveform_weight * normalized_waveform_loss(
@@ -262,6 +265,13 @@ class Trainer(object):
                 # specI_loss64 = self.sepcI_loss(self.stft64(estimate_source)[3], self.stft64(source)[3]).float()
 
                 loss = sisnr_loss + 1*(specR_loss512 + specI_loss512 + specR_loss256 + specI_loss256 + specR_loss128 + specI_loss128) + (specM_loss512 + specM_loss256 + specM_loss128) + 0.01*pw_loss
+            if self.relative_absence_weight:
+                from utils.loss.losses import normalized_absence_loss
+                reference_mix=mixture[:,0,:source.shape[-1]] if mixture.ndim==3 else mixture[:,0,0,:source.shape[-1]]
+                loss=loss+self.relative_absence_weight*normalized_absence_loss(estimate_source,source,reference_mix,lengths)
+            core=self.model.module if isinstance(self.model,nn.DataParallel) else self.model
+            if hasattr(core,'auxiliary_training_loss'):
+                loss=loss+core.auxiliary_training_loss(estimate_source,source,emb,lengths)
             if not torch.isfinite(loss):
                 raise FloatingPointError('Non-finite training loss')
             # loss = sisnr_loss + specR_loss512 + specI_loss512 + 0.01*pw_loss

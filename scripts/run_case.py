@@ -18,7 +18,7 @@ DATA_KEYS = {
     'bundle_root','bundle_train_mix','bundle_train_ref','bundle_train_aux',
     'bundle_dev_mix','bundle_dev_ref','bundle_dev_aux',
     'bundle_train_cache','bundle_dev_cache','ref_duration',
-    'dataset_type','corpus_index','corpus_embedding_cache','train_epoch_size',
+    'dataset_type','corpus_index','corpus_embedding_cache','train_epoch_size','noise_index',
 }
 
 
@@ -35,6 +35,7 @@ def evaluate_heldout_test(config, config_path, device, precision, threads):
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--data-epoch-offset',type=int,help='Disjoint data epochs when resetting optimizer after pilot')
     p.add_argument('--case-config',type=Path,help='Explicit experimental configuration; leaves original queue registry unchanged')
     p.add_argument('--case', required=True, help='case00..case09 or full case name')
     p.add_argument('--data-config', type=Path, required=True)
@@ -77,6 +78,7 @@ def main(argv=None):
         p.error('seed must be in [0, 2**32)')
     with args.data_config.open() as f:
         shared=yaml.safe_load(f)
+    noise_index=shared.pop('noise_index',None)
     if not isinstance(shared,dict) or set(shared)-DATA_KEYS:
         p.error('Unsupported shared override; data-config accepts only bundle paths/ref_duration')
     # Relative server paths resolve against the shared data config, not shell cwd.
@@ -97,12 +99,18 @@ def main(argv=None):
                'persistent_workers':args.persistent_workers,'prefetch_factor':args.prefetch_factor}
     if args.samples_per_epoch is not None:
         overrides['train_epoch_size']=args.samples_per_epoch
+    if args.data_epoch_offset is not None:overrides['data_epoch_offset']=args.data_epoch_offset
     torch.set_num_threads(args.threads)
     random.seed(args.seed);np.random.seed(args.seed);torch.manual_seed(args.seed)
     if torch.cuda.is_available():torch.cuda.manual_seed_all(args.seed)
     text=(args.case_config or ROOT/CASES[case]).read_text()
     resolved=resolve_references(text,overrides=overrides,overrides_must_match=True).read()
     config=load_hyperpyyaml(resolved)
+    if noise_index is not None:
+        noise_path=Path(noise_index)
+        if not noise_path.is_absolute():noise_path=args.data_config.resolve().parent/noise_path
+        config['noise_index']=str(noise_path.resolve())
+        resolved += '\nnoise_index: '+str(noise_path.resolve())+'\n'
     # Model variants consume different RNG amounts during construction. Reset
     # before creating data loaders so same seed also means same sampling stream.
     random.seed(args.seed);np.random.seed(args.seed);torch.manual_seed(args.seed)
