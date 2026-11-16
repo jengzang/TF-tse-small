@@ -1,0 +1,38 @@
+[
+  {
+    "name": "case05_wide_film",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case05_wide_film",
+    "epoch": 35,
+    "completed": 39
+  },
+  {
+    "name": "case06_small_t_fla",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case06_small_t_fla",
+    "epoch": 36,
+    "completed": 40
+  },
+  {
+    "name": "case07_wide_t_fla",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case07_wide_t_fla",
+    "epoch": 5,
+    "completed": 5
+  },
+  {
+    "name": "case09_wide_t_bilstm",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case09_wide_t_bilstm",
+    "epoch": 11,
+    "completed": 13
+  },
+  {
+    "name": "exp10_film_finetune",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp10_film_finetune",
+    "epoch": 10,
+    "completed": 11
+  },
+  {
+    "name": "exp11_film_waveform",
+    "folder": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp11_film_waveform",
+    "epoch": 10,
+    "completed": 10
+  }
+]

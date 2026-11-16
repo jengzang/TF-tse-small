@@ -1,0 +1,71 @@
+{
+  "selected": [
+    {
+      "name": "exp11_film_waveform",
+      "score": 10.876889458447371,
+      "validation_epoch": 77,
+      "validation_absent_rms": 0.01596888955043373,
+      "signature": "{\"contract\": {\"case_arch\": {\"condition_dim\": 32, \"fc_dim\": 16, \"frequency_hidden\": 32, \"layers\": 2, \"variant\": \"film\"}, \"case_version\": 1, \"input_channels\": 1, \"time_layout\": \"fixed\"}, \"weights\": {\"normalized_waveform_weight\": 1.0, \"relative_absence_weight\": 0.0, \"spectral_weight\": 1.0}}",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp11_film_waveform/temp_best.pth.tar",
+      "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp11_film_waveform/config.yaml",
+      "checkpoint_sha256": "06d1c26db886c29235cfbd438184c74cc38a51a3937e96361f508de8d4ed6ccc",
+      "job_name": "noisy01_exp11_film_waveform",
+      "followup_config": "/public/home/yangzheng123/project/speech_tftse/config/cases/noisy01_exp11_film_waveform.yaml",
+      "initialization": "fresh; AISHELL-2-only training; old checkpoint is selection provenance only"
+    },
+    {
+      "name": "exp10_film_finetune",
+      "score": 10.864849330546281,
+      "validation_epoch": 77,
+      "validation_absent_rms": 0.01076561919933952,
+      "signature": "{\"contract\": {\"case_arch\": {\"condition_dim\": 32, \"fc_dim\": 16, \"frequency_hidden\": 32, \"layers\": 2, \"variant\": \"film\"}, \"case_version\": 1, \"input_channels\": 1, \"time_layout\": \"fixed\"}, \"weights\": {\"normalized_waveform_weight\": 0.0, \"relative_absence_weight\": 0.0, \"spectral_weight\": 1.0}}",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp10_film_finetune/temp_best.pth.tar",
+      "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp10_film_finetune/config.yaml",
+      "checkpoint_sha256": "836104dbf12b7b9567b88c2e4cebf3987c364ef20120a20245e402f5dc48c0d0",
+      "job_name": "noisy02_exp10_film_finetune",
+      "followup_config": "/public/home/yangzheng123/project/speech_tftse/config/cases/noisy02_exp10_film_finetune.yaml",
+      "initialization": "fresh; AISHELL-2-only training; old checkpoint is selection provenance only"
+    },
+    {
+      "name": "paper17_local_global_context",
+      "score": 10.69925686387333,
+      "validation_epoch": 45,
+      "validation_absent_rms": 0.010205801245391223,
+      "signature": "{\"contract\": {\"case_arch\": {\"condition_dim\": 32, \"fc_dim\": 16, \"frequency_hidden\": 32, \"layers\": 2, \"paper\": {\"adversarial_weight\": 0.0, \"condition\": \"film\", \"context\": \"both\", \"identity_weight\": 0.0, \"raw\": \"none\", \"temporal\": \"standard\"}, \"variant\": \"film\"}, \"case_version\": 1, \"input_channels\": 1, \"time_layout\": \"fixed\"}, \"weights\": {\"normalized_waveform_weight\": 0.0, \"relative_absence_weight\": 0.0, \"spectral_weight\": 1.0}}",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/paper_queue_20261114/formal/paper17_local_global_context/temp_best.pth.tar",
+      "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/paper_queue_20261114/formal/paper17_local_global_context/config.yaml",
+      "checkpoint_sha256": "0a594334146650c9c502fb03b1c7fd53b43d0fa88c738bd2ba6d8fe9f0f7edec",
+      "job_name": "noisy03_paper17_local_global_context",
+      "followup_config": "/public/home/yangzheng123/project/speech_tftse/config/cases/noisy03_paper17_local_global_context.yaml",
+      "initialization": "fresh; AISHELL-2-only training; old checkpoint is selection provenance only"
+    },
+    {
+      "name": "paper16_global_context",
+      "score": 10.615919249693897,
+      "validation_epoch": 44,
+      "validation_absent_rms": 0.00856721131176706,
+      "signature": "{\"contract\": {\"case_arch\": {\"condition_dim\": 32, \"fc_dim\": 16, \"frequency_hidden\": 32, \"layers\": 2, \"paper\": {\"adversarial_weight\": 0.0, \"condition\": \"film\", \"context\": \"global\", \"identity_weight\": 0.0, \"raw\": \"none\", \"temporal\": \"standard\"}, \"variant\": \"film\"}, \"case_version\": 1, \"input_channels\": 1, \"time_layout\": \"fixed\"}, \"weights\": {\"normalized_waveform_weight\": 0.0, \"relative_absence_weight\": 0.0, \"spectral_weight\": 1.0}}",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/paper_queue_20261114/formal/paper16_global_context/temp_best.pth.tar",
+      "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/paper_queue_20261114/formal/paper16_global_context/config.yaml",
+      "checkpoint_sha256": "844e71635e5e9f84af13de9a1bd94c2e5d1439a19e94fa54c595290098cab6f9",
+      "job_name": "noisy04_paper16_global_context",
+      "followup_config": "/public/home/yangzheng123/project/speech_tftse/config/cases/noisy04_paper16_global_context.yaml",
+      "initialization": "fresh; AISHELL-2-only training; old checkpoint is selection provenance only"
+    },
+    {
+      "name": "case05_wide_film",
+      "score": 10.542284686239578,
+      "validation_epoch": 48,
+      "validation_absent_rms": 0.01860308580958814,
+      "signature": "{\"contract\": {\"case_arch\": {\"condition_dim\": 32, \"fc_dim\": 64, \"frequency_hidden\": 88, \"layers\": 3, \"variant\": \"film\"}, \"case_version\": 1, \"input_channels\": 1, \"time_layout\": \"fixed\"}, \"weights\": {\"normalized_waveform_weight\": 0.0, \"relative_absence_weight\": 0.0, \"spectral_weight\": 1.0}}",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case05_wide_film/temp_best.pth.tar",
+      "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case05_wide_film/config.yaml",
+      "checkpoint_sha256": "d10f39c37562d992e2aa55d727b49b9aa87f565b0a954295c11eb34ff64d18c2",
+      "job_name": "noisy05_case05_wide_film",
+      "followup_config": "/public/home/yangzheng123/project/speech_tftse/config/cases/noisy05_case05_wide_film.yaml",
+      "initialization": "fresh; AISHELL-2-only training; old checkpoint is selection provenance only"
+    }
+  ],
+  "criterion": "validation output SI-SNR at dev-loss-best epoch; five distinct architecture/loss directions; heldout test unused",
+  "created_at": 1794817773.3094678
+}

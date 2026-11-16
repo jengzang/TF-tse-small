@@ -1,0 +1,833 @@
+{
+  "timestamp": "2026-11-12T15:17:14.657373+08:00",
+  "cases": [
+    {
+      "name": "case00_small_gridnet",
+      "completed": 50,
+      "tested_epoch": 50,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case00_small_gridnet/temp_best.pth.tar",
+      "checkpoint_sha256": "d3dfd6071994c9c7c850d595a1fdad2f4777554697bb6a10b55ba1562d1ec0ad",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -16.694579711327187,
+          "sisnri_db": 3.319700461167556,
+          "gain_db": 7.893657409172928
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -6.615129246161534,
+          "sisnri_db": 3.143537232509026,
+          "gain_db": -1.84098544173069
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 0.8894006821844312,
+          "sisnri_db": 5.908221328258515,
+          "gain_db": -6.162184196781894
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 3.9639068846455,
+          "sisnri_db": 3.9924322929278584,
+          "gain_db": -9.28185847184761
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.5612011551857,
+          "sisnri_db": 3.572473617394765,
+          "gain_db": -10.739049436421434
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 12.917782769884383,
+          "sisnri_db": 2.9126412527901784,
+          "gain_db": -11.573628780425755
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.639081719803485,
+          "sisnri_db": 1.6554602792818252,
+          "gain_db": -11.570174587675224
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 12.08170360611702,
+        "rms": 0.0081100840456742
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 38.45868451667555,
+        "gain_db": -11.74316987479834
+      }
+    },
+    {
+      "name": "case01_wide_gridnet",
+      "completed": 50,
+      "tested_epoch": 49,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case01_wide_gridnet/temp_best.pth.tar",
+      "checkpoint_sha256": "13490ede3372a488061b0a29a15f30c1cb542ec6b63636251a7928ef9821f08e",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -16.480464641864483,
+          "sisnri_db": 3.5338155306302586,
+          "gain_db": 9.268434837465207
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -5.6164723726419306,
+          "sisnri_db": 4.14219410602863,
+          "gain_db": 4.426853599090713
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 1.1855769231087632,
+          "sisnri_db": 6.204397569182846,
+          "gain_db": 0.9207866332156514
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 3.905568420390288,
+          "sisnri_db": 3.934093828672647,
+          "gain_db": 0.2154574747591091
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.53490771982405,
+          "sisnri_db": 3.546180182033115,
+          "gain_db": -0.2044674439935126
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 13.029393768310547,
+          "sisnri_db": 3.0242522512163434,
+          "gain_db": -0.5038130991955532
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.8028659559276,
+          "sisnri_db": 1.8192445154059422,
+          "gain_db": -0.5162033551168679
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 6.3353385998084075,
+        "rms": 0.018984955527859303
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 39.83698261145389,
+        "gain_db": -0.5589436723053649
+      }
+    },
+    {
+      "name": "case02_small_mix_skip",
+      "completed": 50,
+      "tested_epoch": 50,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case02_small_mix_skip/temp_best.pth.tar",
+      "checkpoint_sha256": "1dbdcf7bd87b6899bcbc2c05785e1b861beab26f5ffa8973481281d53c1b7d7c",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -20.381482637845554,
+          "sisnri_db": -0.3672024653508113,
+          "gain_db": 19.79356800449277
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -9.954222238980806,
+          "sisnri_db": -0.1955557603102464,
+          "gain_db": 10.09161506557159
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": -4.940247556898329,
+          "sisnri_db": 0.07857308917575412,
+          "gain_db": 5.983883342075547
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 0.13088139991660783,
+          "sisnri_db": 0.15940680819896644,
+          "gain_db": 2.8520295523182404
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 5.303710661994087,
+          "sisnri_db": 0.3149831242031521,
+          "gain_db": 1.046257983590334
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 10.611302321297782,
+          "sisnri_db": 0.6061608042035784,
+          "gain_db": 0.3152063505349117
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 20.625339717081147,
+          "sisnri_db": 0.6417182765594901,
+          "gain_db": 0.013973485269105237
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 0.3277002072031565,
+        "rms": 0.03217217644311133
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 48.930036429202914,
+        "gain_db": -0.02152545770370485
+      }
+    },
+    {
+      "name": "case03_wide_mix_skip",
+      "completed": 50,
+      "tested_epoch": 48,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case03_wide_mix_skip/temp_best.pth.tar",
+      "checkpoint_sha256": "0b5073f6497d8c60881678362fd7584e2fd561dfca483d440264a15959fdf40d",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -16.430183777442345,
+          "sisnri_db": 3.5840963950523963,
+          "gain_db": 14.081804986968356
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -6.571195040722019,
+          "sisnri_db": 3.187471437948541,
+          "gain_db": 5.875456973328038
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": -1.424982906476685,
+          "sisnri_db": 3.593837739597398,
+          "gain_db": 2.8740630846842623
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 2.1341499108924635,
+          "sisnri_db": 2.162675319174822,
+          "gain_db": 1.359726952698587
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 7.115962354642235,
+          "sisnri_db": 2.1272348168513013,
+          "gain_db": 0.4357142595227643
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 11.800942843300955,
+          "sisnri_db": 1.7958013262067523,
+          "gain_db": 0.09992304806742588
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.303658629116946,
+          "sisnri_db": 1.3200371885952884,
+          "gain_db": 0.11656662981168811
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 3.9710309950966747,
+        "rms": 0.022621353270213005
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 50.07668084809274,
+        "gain_db": 0.08237690406498868
+      }
+    },
+    {
+      "name": "case04_small_film",
+      "completed": 50,
+      "tested_epoch": 45,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case04_small_film/temp_best.pth.tar",
+      "checkpoint_sha256": "a2e082aa95c583d4779f2917d8464de41079a8461d813b78bda8b746426ab245",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -15.376630269564115,
+          "sisnri_db": 4.637649902930627,
+          "gain_db": 7.034471459490339
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -4.686097814486577,
+          "sisnri_db": 5.072568664183984,
+          "gain_db": -2.5019934859446313
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 1.5222886038323244,
+          "sisnri_db": 6.541109249906407,
+          "gain_db": -6.815758305430179
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 4.141953229428165,
+          "sisnri_db": 4.1704786377105245,
+          "gain_db": -9.883673790769496
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.234104568428464,
+          "sisnri_db": 3.2453770306375294,
+          "gain_db": -11.394806404180903
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 12.90675048828125,
+          "sisnri_db": 2.9016089711870467,
+          "gain_db": -12.252909040992082
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.406191159601082,
+          "sisnri_db": 1.4225697190794226,
+          "gain_db": -12.282117425195048
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 12.581494715621137,
+        "rms": 0.007736375590213641
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 37.946328770030625,
+        "gain_db": -12.471944578206326
+      }
+    },
+    {
+      "name": "case05_wide_film",
+      "completed": 39,
+      "tested_epoch": 35,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case05_wide_film/epoch35.pth.tar",
+      "checkpoint_sha256": "1470ad69c920b4d25b1a9c122c0a918c958d4fddfd0c5ff875f94e7b3296819e",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -17.646163316873405,
+          "sisnri_db": 2.368116855621338,
+          "gain_db": 13.713399670441593
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -6.570185523766738,
+          "sisnri_db": 3.188480954903823,
+          "gain_db": 5.889234617029592
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 0.3204308505066567,
+          "sisnri_db": 5.33925149658074,
+          "gain_db": 1.7418543523860335
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 3.5364716006753345,
+          "sisnri_db": 3.5649970089576932,
+          "gain_db": -0.09814808643672515
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 7.988242472542657,
+          "sisnri_db": 2.9995149347517227,
+          "gain_db": -0.9696943692761595
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 12.556542914254324,
+          "sisnri_db": 2.5514013971601215,
+          "gain_db": -1.4496043117497501
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.330411427641568,
+          "sisnri_db": 1.3467899871199098,
+          "gain_db": -1.417957504304152
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 4.979049507444435,
+        "rms": 0.02080420502916783
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 41.06018182003137,
+        "gain_db": -1.5266730295668904
+      }
+    },
+    {
+      "name": "case06_small_t_fla",
+      "completed": 40,
+      "tested_epoch": 36,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case06_small_t_fla/epoch36.pth.tar",
+      "checkpoint_sha256": "b32b3a29fb4798da470396396a730b1cfa3d55879cee99d900c3c751c0943f82",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -15.950153717627892,
+          "sisnri_db": 4.06412645486685,
+          "gain_db": 6.680008089422377
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -5.727130513924819,
+          "sisnri_db": 4.031535964745742,
+          "gain_db": -2.826090491646759
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 0.8155625658834146,
+          "sisnri_db": 5.834383211957498,
+          "gain_db": -7.301542554115529
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 3.503865963386165,
+          "sisnri_db": 3.5323913716685236,
+          "gain_db": -10.585538429696255
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.146141498618656,
+          "sisnri_db": 3.1574139608277214,
+          "gain_db": -11.983512767546253
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 12.873716354370117,
+          "sisnri_db": 2.8685748372759137,
+          "gain_db": -12.74589252323933
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.629330831031275,
+          "sisnri_db": 1.6457093905096185,
+          "gain_db": -12.708804390168229
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 13.478190940997127,
+        "rms": 0.0069907491875736165
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 41.86680319814971,
+        "gain_db": -12.818613688256491
+      }
+    },
+    {
+      "name": "case07_wide_t_fla",
+      "completed": 5,
+      "tested_epoch": 5,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case07_wide_t_fla/epoch5.pth.tar",
+      "checkpoint_sha256": "0535dc30c9a9d6c4b5aa2e1004dc590c98c050a5b9f3ec70f19e80089a16421c",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -20.158148985642654,
+          "sisnri_db": -0.14386881314791167,
+          "gain_db": 13.806075727766528
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -10.064026795900785,
+          "sisnri_db": -0.3053603172302246,
+          "gain_db": 3.8161245637679397
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": -4.060564776261647,
+          "sisnri_db": 0.9582558698124356,
+          "gain_db": -0.7991448697852888
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 0.769809404377722,
+          "sisnri_db": 0.7983348126600807,
+          "gain_db": -4.069719996486591
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 5.868799991077847,
+          "sisnri_db": 0.8800724532869127,
+          "gain_db": -5.5260848585497975
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 10.990044048854283,
+          "sisnri_db": 0.9849025317600795,
+          "gain_db": -6.054978324134451
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 20.853649348428803,
+          "sisnri_db": 0.8700279079071463,
+          "gain_db": -5.763562973610303
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 7.239703830357404,
+        "rms": 0.014613161136149638
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 35.935957272847496,
+        "gain_db": -5.756097726827198
+      }
+    },
+    {
+      "name": "case08_small_t_bilstm",
+      "completed": 50,
+      "tested_epoch": 49,
+      "precision": "bf16",
+      "checkpoint": "chkpt/cases/dry_bf16_20261110/formal/case08_small_t_bilstm/temp_best.pth.tar",
+      "checkpoint_sha256": "6d20fc162065ebeae5ae7365abfee7d1162f6c34ca022ac9d4b578a42acfe327",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -15.151590310610258,
+          "sisnri_db": 4.862689861884484,
+          "gain_db": 7.1850540182932585
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -5.428796151509652,
+          "sisnri_db": 4.329870327160909,
+          "gain_db": -1.952468493321406
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 1.334563438470165,
+          "sisnri_db": 6.353384084544248,
+          "gain_db": -6.172523043348713
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 3.893096651136875,
+          "sisnri_db": 3.9216220594192337,
+          "gain_db": -9.285041334825625
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.647859870062934,
+          "sisnri_db": 3.6591323322719997,
+          "gain_db": -10.703288105214252
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 12.804576812471662,
+          "sisnri_db": 2.799435295377459,
+          "gain_db": -11.565892814213559
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.561890275511022,
+          "sisnri_db": 1.5782688349893648,
+          "gain_db": -11.576509375725015
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 12.186653829241664,
+        "rms": 0.008170779087762209
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 37.31611084215569,
+        "gain_db": -11.721981018676823
+      }
+    },
+    {
+      "name": "case09_wide_t_bilstm",
+      "completed": 13,
+      "tested_epoch": 11,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case09_wide_t_bilstm/epoch11.pth.tar",
+      "checkpoint_sha256": "fa2ec0f104ca8276f5ceecb148f8669fa0f2537642bfab7310f9101e4478377f",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -18.20067618443416,
+          "sisnri_db": 1.8136039880605845,
+          "gain_db": 13.978213076093207
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -7.828826354100154,
+          "sisnri_db": 1.9298401245704064,
+          "gain_db": 4.5225726384405
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": -1.8897318289511733,
+          "sisnri_db": 3.1290888171229096,
+          "gain_db": 0.2992699898136668
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 2.143173781823781,
+          "sisnri_db": 2.1716991901061395,
+          "gain_db": -2.8937449909231443
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 6.8141434987386065,
+          "sisnri_db": 1.8254159609476726,
+          "gain_db": -4.258340909547841
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 11.76752793448312,
+          "sisnri_db": 1.762386417388916,
+          "gain_db": -4.920699297818944
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 20.942468551740255,
+          "sisnri_db": 0.9588471112185961,
+          "gain_db": -4.801291091720125
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 5.860453245015918,
+        "rms": 0.017092081371825326
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 39.81179734432336,
+        "gain_db": -4.858380623303014
+      }
+    },
+    {
+      "name": "exp10_film_finetune",
+      "completed": 11,
+      "tested_epoch": 10,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp10_film_finetune/epoch10.pth.tar",
+      "checkpoint_sha256": "897e552a4f1744e4265117d0ea15c8fb124ad72471b2b9897da272589ccd1c2f",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -14.845012261317326,
+          "sisnri_db": 5.169267911177415,
+          "gain_db": 7.047640946426581
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -5.344124573927659,
+          "sisnri_db": 4.414541904742901,
+          "gain_db": -2.1210230422859655
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 1.5953345618314214,
+          "sisnri_db": 6.614155207905505,
+          "gain_db": -6.511440939243994
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 4.3456689583241115,
+          "sisnri_db": 4.37419436660647,
+          "gain_db": -9.65160043676831
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.685208813349407,
+          "sisnri_db": 3.6964812755584715,
+          "gain_db": -11.124868508288294
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 13.100201838357108,
+          "sisnri_db": 3.0950603212629044,
+          "gain_db": -12.016850569555826
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.632940867175794,
+          "sisnri_db": 1.6493194266541364,
+          "gain_db": -12.018496182407533
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 12.247437743512487,
+        "rms": 0.008045064159965788
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 43.90145099524295,
+        "gain_db": -12.191483475627592
+      }
+    },
+    {
+      "name": "exp11_film_waveform",
+      "completed": 10,
+      "tested_epoch": 10,
+      "precision": "fp32",
+      "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/next_cases_20261112/exp11_film_waveform/epoch10.pth.tar",
+      "checkpoint_sha256": "8d45182f7f59807fecb29d7a5362c5d80f14cc68ac553896d5b3ad8cab6d5e34",
+      "sir": {
+        "-20.0": {
+          "n": 13,
+          "input_sisnr_db": -20.014280172494743,
+          "output_sisnr_db": -14.926516349499042,
+          "sisnri_db": 5.087763822995699,
+          "gain_db": 9.085052501480309
+        },
+        "-10.0": {
+          "n": 13,
+          "input_sisnr_db": -9.75866647867056,
+          "output_sisnr_db": -5.34029497550084,
+          "sisnri_db": 4.41837150316972,
+          "gain_db": -0.46017548458429725
+        },
+        "-5.0": {
+          "n": 90,
+          "input_sisnr_db": -5.018820646074083,
+          "output_sisnr_db": 1.6279161721467972,
+          "sisnri_db": 6.64673681822088,
+          "gain_db": -4.892277265943015
+        },
+        "0.0": {
+          "n": 90,
+          "input_sisnr_db": -0.028525408282358614,
+          "output_sisnr_db": 4.356271532540106,
+          "sisnri_db": 4.384796940822465,
+          "gain_db": -8.133954579277933
+        },
+        "5.0": {
+          "n": 90,
+          "input_sisnr_db": 4.988727537790934,
+          "output_sisnr_db": 8.699399733543396,
+          "sisnri_db": 3.7106721957524615,
+          "gain_db": -9.646028796610983
+        },
+        "10.0": {
+          "n": 70,
+          "input_sisnr_db": 10.005141517094204,
+          "output_sisnr_db": 13.10843518120902,
+          "sisnri_db": 3.103293664114816,
+          "gain_db": -10.579056152968104
+        },
+        "20.0": {
+          "n": 73,
+          "input_sisnr_db": 19.98362144052166,
+          "output_sisnr_db": 21.58657591310266,
+          "sisnri_db": 1.6029544725810012,
+          "gain_db": -10.61432612804597
+        }
+      },
+      "absent": {
+        "n": 40,
+        "suppression_db": 10.610354285028945,
+        "rms": 0.009686629841192649
+      },
+      "clean_only": {
+        "n": 33,
+        "output_sisnr_db": 43.15744483832157,
+        "gain_db": -10.77978258963707
+      }
+    }
+  ]
+}

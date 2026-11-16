@@ -1,0 +1,22 @@
+{
+  "speech_speakers": {
+    "train": 1393,
+    "dev": 398,
+    "test": 199
+  },
+  "noise_files": {
+    "train": 690,
+    "dev": 84,
+    "test": 105
+  },
+  "index_sha256": "3637d1a134f0dd7f5dadfe0463cb18e66300466781a2ffa236352002ade1602f",
+  "sir_db": [
+    0,
+    5
+  ],
+  "noise_snr_db": [
+    5,
+    20
+  ],
+  "reverberation": false
+}
