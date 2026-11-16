@@ -4,7 +4,7 @@ optimizer: !name:torch.optim.Adam
   weight_decay: 0
 checkpoint: 1
 continue_from: ''
-init_from: 
+init_from:
   /public/home/yangzheng123/project/speech_tftse/chkpt/cases/dry_bf16_20261110/formal/case04_small_film/epoch45.pth.tar
 max_norm: 5
 print_freq: 100
@@ -28,9 +28,9 @@ sample_rate: 16000
 num_spks: 1
 input_channels: 1
 dataset_type: corpus_mix
-corpus_index: 
+corpus_index:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/index.json
-corpus_embedding_cache: 
+corpus_embedding_cache:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/embeddings.pt
 train_epoch_size: 32000
 mono_policy: mono
@@ -39,14 +39,14 @@ ref_duration: 2.9
 bundle_train_mix: data/mono/train_mix.scp
 bundle_train_ref: data/mono/train_ref.scp
 bundle_train_aux: data/mono/train_aux.scp
-bundle_dev_mix: 
+bundle_dev_mix:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/mix.scp
-bundle_dev_ref: 
+bundle_dev_ref:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/ref.scp
-bundle_dev_aux: 
+bundle_dev_aux:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/aux.scp
 bundle_train_cache: data/mono/train_embeddings.pt
-bundle_dev_cache: 
+bundle_dev_cache:
   /public/home/yangzheng123/project/speech_tftse/data/corpora_dry/dev/embeddings.pt
 legacy_positive_clamp: false
 padding_aware_loss: true

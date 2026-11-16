@@ -76,6 +76,7 @@ def main():
             dest=ROOT/'config/cases'/(c['job_name']+'.yaml')
             text=Path(c['config']).read_text()
             text=re.sub(r'(?m)^(    lr:)\s*[^\n]+',r'\g<1> 0.001',text)
+            text='\n'.join(line.rstrip() for line in text.splitlines())+'\n'
             dest.write_text(text);c['followup_config']=str(dest)
             c['initialization']='fresh; AISHELL-2-only training; old checkpoint is selection provenance only'
         tmp=selection_path.with_suffix('.tmp');tmp.write_text(json.dumps(dict(selected=selected,criterion='validation output SI-SNR at dev-loss-best epoch; five distinct architecture/loss directions; heldout test unused',created_at=time.time()),indent=2));tmp.replace(selection_path)
