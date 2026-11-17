@@ -1,0 +1,13 @@
+{
+  "registered_at": 1794887862.8224988,
+  "job_name": "senior_original_reference",
+  "priority": "next free GPU pilot",
+  "parameters": 298238,
+  "initialization": "random",
+  "pilot_epochs": 3,
+  "formal_epochs": 50,
+  "source_sha256": "8c77071a7f7b34df48f11ae312190d221ef30d8e2d4b720346db8b52d0931850",
+  "adapter": "duplicate same mono into original dual-input interface",
+  "verification": "exact FP32 output and state-key parity; finite gradients; BF16 real-data training plus512 dev and512 test smoke; not a trained-performance result",
+  "existing_children": "preserved"
+}
