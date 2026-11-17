@@ -11,3 +11,10 @@ class FollowupTests(unittest.TestCase):
         self.assertEqual([c['name'] for c in chosen],['0','2','4','6','8'])
     def test_priority_bypasses_all_done_barrier(self):
         self.assertTrue(f.dependencies_done(priority=True))
+    def test_all_selected_configs_accept_queue_epoch_offset(self):
+        from pathlib import Path
+        import re
+        paths=list((Path(__file__).resolve().parents[1]/'config/cases').glob('noisy0*.yaml'))
+        self.assertEqual(len(paths),5)
+        for p in paths:
+            self.assertRegex(p.read_text(),r'(?m)^data_epoch_offset:\s*\d+\s*$',p.name)

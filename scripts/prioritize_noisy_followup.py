@@ -56,6 +56,9 @@ def main():
             break
         time.sleep(15)
     fcntl.flock(oldlock,fcntl.LOCK_UN);oldlock.close()
+    restore_old_backlog(out,old)
+
+def restore_old_backlog(out,old):
     # Once every new formal job has a slot, original backlog may use free GPUs.
     newstate=out/'status.v2.json'
     while True:
@@ -67,4 +70,7 @@ def main():
     p=subprocess.Popen([sys.executable,'-u','scripts/run_paper_queue.py'],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     (out/'old_backlog_resumed.json').write_text(json.dumps(dict(pid=p.pid,resumed_at=time.time())))
     print('Resumed old backlog',p.pid,flush=True)
-if __name__=='__main__':main()
+if __name__=='__main__':
+    if '--restore-only' in sys.argv:
+        restore_old_backlog(ROOT/'runs'/NEW_RUN,ROOT/'runs'/OLD_RUN)
+    else:main()

@@ -91,3 +91,5 @@ MaskNet: &id003 !new:models.model_tfgridnet_cases.Tar_Model
 modules:
   masknet: *id003
 normalized_waveform_weight: 1.0
+
+data_epoch_offset: 0

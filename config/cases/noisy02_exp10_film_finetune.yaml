@@ -89,3 +89,5 @@ MaskNet: &id003 !new:models.model_tfgridnet_cases.Tar_Model
   time_bilstm_hidden: 20
 modules:
   masknet: *id003
+
+data_epoch_offset: 0
