@@ -1,6 +1,6 @@
 # Independent single-variable mono case. Data/runtime overrides: scripts/run_case.py.
 optimizer: !name:torch.optim.Adam
-  lr: 0.0001
+  lr: 0.001
   weight_decay: 0
 checkpoint: 1
 continue_from: ''

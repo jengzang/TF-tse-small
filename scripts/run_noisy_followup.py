@@ -75,7 +75,7 @@ def main():
             c['job_name']=f'noisy{i+1:02}_{c["name"]}'
             dest=ROOT/'config/cases'/(c['job_name']+'.yaml')
             text=Path(c['config']).read_text()
-            text=re.sub(r'(?m)^(    lr:)\s*[^\n]+',r'\g<1> 0.001',text)
+            text=re.sub(r'(?m)^([ \t]+lr:)\s*[^\n]+',r'\g<1> 0.001',text)
             if not re.search(r'^data_epoch_offset:',text,re.M):text+='\ndata_epoch_offset: 0\n'
             text='\n'.join(line.rstrip() for line in text.splitlines())+'\n'
             dest.write_text(text);c['followup_config']=str(dest)

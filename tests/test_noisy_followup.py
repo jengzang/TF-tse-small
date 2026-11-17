@@ -18,3 +18,9 @@ class FollowupTests(unittest.TestCase):
         self.assertEqual(len(paths),5)
         for p in paths:
             self.assertRegex(p.read_text(),r'(?m)^data_epoch_offset:\s*\d+\s*$',p.name)
+    def test_fresh_selected_configs_use_shared_initial_learning_rate(self):
+        from pathlib import Path
+        import re
+        for p in (Path(__file__).resolve().parents[1]/'config/cases').glob('noisy0*.yaml'):
+            lr=float(re.search(r'(?m)^\s+lr:\s*(\S+)',p.read_text())[1])
+            self.assertEqual(lr,.001,p.name)
