@@ -64,7 +64,7 @@ def restore_old_backlog(out,old):
     while True:
         if newstate.exists():
             jobs=json.loads(newstate.read_text())['jobs']
-            if len(jobs)==5 and all(j['status'] in ('succeeded','failed') or (j['stage']=='formal' and j['status']=='running') for j in jobs):break
+            if len(jobs)>=5 and all(j['status'] in ('succeeded','failed') or (j['stage']=='formal' and j['status']=='running') for j in jobs):break
         time.sleep(30)
     log=(old/'resumed_after_priority.log').open('a')
     p=subprocess.Popen([sys.executable,'-u','scripts/run_paper_queue.py'],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)

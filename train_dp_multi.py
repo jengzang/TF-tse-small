@@ -39,7 +39,7 @@ def save_source_snapshot(checkpoint_dir):
              'models/model_TFGridNet_k1_stage2_multi_v5.py', 'models/local/dcunet.py',
              'models/local/get_layer_from_string.py', 'utils/feature.py',
              'trainer/trainer_dp_v1.py', 'utils/loss/losses.py', 'dataset/bundle_data.py']
-    files += ['models/model_tfgridnet_cases.py', 'models/vendor/fla/linear_attn.py',
+    files += ['models/model_tfgridnet_cases.py', 'models/model_senior_reference.py', 'models/vendor/fla/linear_attn.py',
               'models/vendor/fla/LICENSE', 'models/vendor/fla/SOURCE.json',
               'utils/case_registry.py', 'dataset/corpus_mix.py', 'scripts/run_case.py',
               'scripts/inspect_cases.py', 'scripts/evaluate_case.py', 'scripts/run_next_cases.py', 'models/model_paper_ablation.py', 'utils/enrollment.py', 'scripts/run_paper_queue.py', 'utils/paper_cases.py', 'scripts/run_noisy_followup.py', 'scripts/prepare_aishell2_noisy.py',
