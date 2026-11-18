@@ -27,6 +27,8 @@ class AccumulationTests(unittest.TestCase):
             trainer.tr_loader=torch.utils.data.DataLoader(dataset,batch_size=batch)
             trainer.accumulation_steps=accumulation;trainer.max_steps=None;trainer.global_step=0
             trainer.padding_aware_loss=True;trainer.target_absent_loss=True
+            trainer.spectral_weight=1.;trainer.config_waveform_weight=0.
+            trainer.relative_absence_weight=0.;trainer.active_log_rms_weight=0.;trainer.data_epoch_offset=0
             trainer.max_norm=10000;trainer.print_freq=100;trainer.logger=Logger()
             trainer.stft512=trainer.stft256=trainer.stft128=None
             with patch('trainer.trainer_dp_v1.presence_aware_sisnr_loss', side_effect=lambda a,b,l: (a-b).square().mean()), patch('trainer.trainer_dp_v1.masked_multires_spectral_loss',return_value=0.):

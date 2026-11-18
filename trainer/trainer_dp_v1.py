@@ -6,7 +6,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from contextlib import nullcontext
-from utils.loss.losses import batchMean_sisnrLoss, masked_sisnr, masked_multires_spectral_loss, presence_aware_sisnr_loss, target_present, normalized_waveform_loss
+from utils.loss.losses import batchMean_sisnrLoss, masked_sisnr, masked_multires_spectral_loss, presence_aware_sisnr_loss, target_present, normalized_waveform_loss, active_target_log_rms_loss
 
 def accumulation_group_size(index, batches, steps):
     """Normalize a final partial accumulation group by its actual length."""
@@ -89,7 +89,12 @@ class Trainer(object):
         self.relative_absence_weight=float(config.get('relative_absence_weight',0.))
         self.data_epoch_offset=int(config.get('data_epoch_offset',0))
         self.config_waveform_weight = float(config.get('normalized_waveform_weight', 0.))
+        self.active_log_rms_weight = float(config.get('active_log_rms_weight', 0.))
         self.padding_aware_loss = config.get('padding_aware_loss', False)
+        if not np.isfinite(self.active_log_rms_weight) or self.active_log_rms_weight < 0:
+            raise ValueError('active_log_rms_weight must be finite and nonnegative')
+        if self.active_log_rms_weight and not self.padding_aware_loss:
+            raise ValueError('active_log_rms_weight requires padding-aware loss')
         self.target_absent_loss = config.get('target_absent_loss', False)
         if self.target_absent_loss and not self.padding_aware_loss:
             raise ValueError('target_absent_loss requires padding_aware_loss')
@@ -265,6 +270,12 @@ class Trainer(object):
                 # specI_loss64 = self.sepcI_loss(self.stft64(estimate_source)[3], self.stft64(source)[3]).float()
 
                 loss = sisnr_loss + 1*(specR_loss512 + specI_loss512 + specR_loss256 + specI_loss256 + specR_loss128 + specI_loss128) + (specM_loss512 + specM_loss256 + specM_loss128) + 0.01*pw_loss
+            if self.active_log_rms_weight:
+                gain_loss = active_target_log_rms_loss(estimate_source, source, lengths)
+                loss = loss + self.active_log_rms_weight * gain_loss
+                if i % self.print_freq == 0:
+                    self.logger.info('Train active log-RMS loss %.6f | waveform weight %.3f | log-RMS weight %.3f',
+                                     gain_loss.item(), self.config_waveform_weight, self.active_log_rms_weight)
             if self.relative_absence_weight:
                 from utils.loss.losses import normalized_absence_loss
                 reference_mix=mixture[:,0,:source.shape[-1]] if mixture.ndim==3 else mixture[:,0,0,:source.shape[-1]]
@@ -326,6 +337,7 @@ class Trainer(object):
         metric_count = 0
         valid_samples = 0
         absent_energy_sum = 0.0
+        total_active_gain_db = 0.0
         absent_count = 0
 
         for i, (data) in enumerate(data_loader):
@@ -372,8 +384,17 @@ class Trainer(object):
                     total_input_sisnr += in_sisnr.sum().item()
                     total_output_sisnr += out_sisnr.sum().item()
                     metric_count += int(present.sum())
+                    valid_mask = torch.arange(min_len, device=source.device)[None, :] < lengths[:, None]
+                    pred_power = (estimate_source.square() * valid_mask).sum(-1) / lengths
+                    ref_power = (source.square() * valid_mask).sum(-1) / lengths
+                    gain_db = 10 * torch.log10((pred_power[present] + 1e-12) / (ref_power[present] + 1e-12))
+                    total_active_gain_db += gain_db.sum().item()
                 loss = (presence_aware_sisnr_loss(estimate_source, source, lengths)
                         if self.target_absent_loss else -out_sisnr.mean())
+                if self.active_log_rms_weight:
+                    # Opt-in selection criterion; keep historical experiment selection unchanged.
+                    loss = loss + self.active_log_rms_weight * active_target_log_rms_loss(
+                        estimate_source, source, lengths)
                 if (~present).any():
                     absent = estimate_source[~present]
                     absent_lengths = lengths[~present]
@@ -430,7 +451,8 @@ class Trainer(object):
         self.valid_metrics = dict(active_samples=metric_count, absent_samples=absent_count,
             input_sisnr=total_input_sisnr / metric_count if metric_count else None,
             output_sisnr=total_output_sisnr / metric_count if metric_count else None,
-            absent_rms=absent_energy_sum / absent_count if absent_count else None)
+            absent_rms=absent_energy_sum / absent_count if absent_count else None,
+            active_gain_db=total_active_gain_db / metric_count if metric_count else None)
         return total_loss / valid_samples
     
     def train(self):

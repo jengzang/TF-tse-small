@@ -106,3 +106,23 @@ def normalized_absence_loss(estimate,target,mixture,lengths):
     output=(estimate.square()*mask).sum(-1)/lengths.to(estimate)
     reference=(mixture.square()*mask).sum(-1)/lengths.to(estimate)
     return (output[absent]/reference[absent].clamp_min(1e-8)).mean()
+
+
+def active_target_log_rms_loss(estimate, target, lengths):
+    """Absolute log RMS ratio on present targets; padding/absence have no gradient.
+
+    Unlike normalized waveform MSE, its restoring gradient remains substantial
+    when estimates are tens of dB below their reference. It constrains energy,
+    so waveform and separation losses must still constrain target identity.
+    """
+    if estimate.shape != target.shape:
+        raise ValueError('Waveform shapes must match')
+    mask = _valid_mask(estimate, lengths).to(estimate.dtype)
+    present = target_present(target, lengths)
+    if not present.any():
+        return estimate.sum() * 0.
+    count = lengths.to(estimate)
+    predicted_power = (estimate.square() * mask).sum(-1) / count
+    target_power = (target.square() * mask).sum(-1) / count
+    ratio = predicted_power[present] / target_power[present].clamp_min(1e-12)
+    return (.5 * torch.log(ratio + 1e-8)).abs().mean()
