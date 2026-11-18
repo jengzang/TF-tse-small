@@ -1,0 +1,333 @@
+{
+  "bn_overlap_audit": {
+    "historical_train_speakers": 1393,
+    "current_test_speakers_including_enrollment_and_all_sources": 198,
+    "speaker_overlap": [],
+    "noise_basename_overlap_count": 105,
+    "warning": "Historical WHAMR to new dry MUSAN is cross-protocol; noise basename overlap does not prove identical waveforms but prevents claiming noise-disjoint evaluation.",
+    "historical_train_metadata_sha256": "fc1c1d8ebfe84694cdf55f2710db37c5cc395a5f99d9a50cfb5e78ebd20eee24"
+  },
+  "deployment": {
+    "local_commit": "94c3c5b",
+    "tested_source_sha256": "09265fab45e1edbbf415886ecd56e7ba8ad0dde42b6fc78e6a4a00fd418200cc",
+    "tests": "2 passed in 2.72s",
+    "source_snapshot": "source_snapshot.py"
+  },
+  "historical_batchnorm2d_external": {
+    "name": "historical_batchnorm2d_external",
+    "epoch": 70,
+    "parameters": 298238,
+    "checkpoint": "/public/home/yangzheng123/project/TF_TSE/chkpt/bundle/batchnorm2d_corrected_20261104/temp_best.pth.tar",
+    "checkpoint_sha256": "f52ca6399817ecefb9bfc91f49060c0561c41efd8250e9b00998a14f7da6cb53",
+    "config": "/public/home/yangzheng123/project/TF_TSE/chkpt/bundle/batchnorm2d_corrected_20261104/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 1.8922352786903502,
+        "output_sisnr": -3.26066240707587,
+        "gain": 0.3397335078349153
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 2.301279846171383,
+        "output_sisnr": 1.8574965728912503,
+        "gain": -1.7774038441382676
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 2.376398678869009,
+        "output_sisnr": 6.2000803500413895,
+        "gain": -2.4933701089042124
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 2.1612761430442333,
+        "output_sisnr": 9.48891106247902,
+        "gain": -2.5108820384932033
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 1.5186901092529297,
+        "output_sisnr": 12.902981236577034,
+        "gain": -2.44358586554712
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 7.450004411088059
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "noisy01_exp11_film_waveform": {
+    "name": "noisy01_exp11_film_waveform",
+    "epoch": 43,
+    "parameters": 310586,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy01_exp11_film_waveform/temp_best.pth.tar",
+    "checkpoint_sha256": "16155e809485224123a5d19e98fb42213246e79e0f81400ee9f3130705aa4228",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy01_exp11_film_waveform/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.219817329198122,
+        "output_sisnr": -2.933080356568098,
+        "gain": -40.2083575517421
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.493059804197401,
+        "output_sisnr": 3.0492765309172682,
+        "gain": -42.27637384153244
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.7610251898877323,
+        "output_sisnr": 7.584706861060113,
+        "gain": -42.906544322769264
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 3.301728244900005,
+        "output_sisnr": 10.62936316433479,
+        "gain": -43.07023458989602
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 3.396175926551223,
+        "output_sisnr": 14.780467053875327,
+        "gain": -43.15434303142027
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 46.81541643454503
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "noisy03_paper17_local_global_context": {
+    "name": "noisy03_paper17_local_global_context",
+    "epoch": 42,
+    "parameters": 313736,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy03_paper17_local_global_context/temp_best.pth.tar",
+    "checkpoint_sha256": "da6476f78d2bb0560e19293607afc43d6c56c9e1991be247e03f7c24b6df3a08",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy03_paper17_local_global_context/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.029388338851277,
+        "output_sisnr": -3.1235093469149433,
+        "gain": -23.592466071138332
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.618483556143474,
+        "output_sisnr": 3.1747002828633413,
+        "gain": -25.74357714287734
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.8073491975665092,
+        "output_sisnr": 7.63103086873889,
+        "gain": -26.305810586378414
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 3.3045407198369503,
+        "output_sisnr": 10.632175639271736,
+        "gain": -26.2978127790849
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 4.004810705780983,
+        "output_sisnr": 15.389101833105087,
+        "gain": -26.058156680025867
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 30.185455652973946
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "noisy04_paper16_global_context": {
+    "name": "noisy04_paper16_global_context",
+    "epoch": 42,
+    "parameters": 312161,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy04_paper16_global_context/temp_best.pth.tar",
+    "checkpoint_sha256": "5021455bc9f9d8e699d80cd7d919308380e2cc79ca135f93cb169d3e3df6e80e",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy04_paper16_global_context/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.247429432696663,
+        "output_sisnr": -2.9054682530695572,
+        "gain": -24.194307055966284
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.522629954270087,
+        "output_sisnr": 3.0788466809899546,
+        "gain": -26.320975881189867
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.6824118308722973,
+        "output_sisnr": 7.506093502044678,
+        "gain": -26.877981382539936
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 3.3504375740885735,
+        "output_sisnr": 10.67807249352336,
+        "gain": -26.828345893379286
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 4.230391837656498,
+        "output_sisnr": 15.614682964980602,
+        "gain": -26.54392610337894
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 30.879332881165695
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "senior_original_reference": {
+    "name": "senior_original_reference",
+    "epoch": 49,
+    "parameters": 298238,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/senior_original_reference/temp_best.pth.tar",
+    "checkpoint_sha256": "f789ee442d13c9afa324658dd834042196859e80c9a3f21fd63a4693e8b96618",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/senior_original_reference/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.16574851796031,
+        "output_sisnr": -2.98714916780591,
+        "gain": -27.39138525508584
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.3396232664290437,
+        "output_sisnr": 2.895839993148911,
+        "gain": -29.48182751067306
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.4081685235723853,
+        "output_sisnr": 7.231850194744766,
+        "gain": -30.050800216426104
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 2.8546060789376497,
+        "output_sisnr": 10.182240998372436,
+        "gain": -29.890755666823168
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 3.667699361220002,
+        "output_sisnr": 15.051990488544106,
+        "gain": -29.538192202399404
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 33.91520523457032
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "three_corpus_existing": {
+    "senior_epoch54": {
+      "summary": {
+        "-5": {
+          "n": 90,
+          "sisnri_db": 2.3523392573826842,
+          "output_sisnr_db": -2.6664548023707337,
+          "gain_db": -0.7699190831158224
+        },
+        "0": {
+          "n": 90,
+          "sisnri_db": 1.6767570334124482,
+          "output_sisnr_db": 1.6482577190630965,
+          "gain_db": -1.572825938083167
+        },
+        "5": {
+          "n": 90,
+          "sisnri_db": 0.6766160714957449,
+          "output_sisnr_db": 5.665373946726322,
+          "gain_db": -1.408540082001426
+        },
+        "10": {
+          "n": 70,
+          "sisnri_db": -1.774990221432277,
+          "output_sisnr_db": 8.230175682476588,
+          "gain_db": -1.3726205716689068
+        },
+        "20": {
+          "n": 73,
+          "sisnri_db": -9.589682480243788,
+          "output_sisnr_db": 10.393965454134223,
+          "gain_db": -0.9124949688825338
+        },
+        "absent": {
+          "n": 40,
+          "suppression_db": 8.700868245450497
+        }
+      },
+      "checkpoint": "../TF_TSE/weights/tse_v5.pth.tar",
+      "checkpoint_sha256": "330e7965cdbd8e4d74a00b14d8e10cb7a899e8d960e3cfaa2d6d8fa951dbd159"
+    },
+    "exp11_film_waveform": {
+      "summary": {
+        "-5": {
+          "n": 90,
+          "sisnri_db": 7.050526720989081,
+          "output_sisnr_db": 2.0317060749149984,
+          "gain_db": -1.5268121616864476
+        },
+        "0": {
+          "n": 90,
+          "sisnri_db": 4.52766858207631,
+          "output_sisnr_db": 4.499143173793952,
+          "gain_db": -4.628315188559571
+        },
+        "5": {
+          "n": 90,
+          "sisnri_db": 3.8038248896598814,
+          "output_sisnr_db": 8.792552427450817,
+          "gain_db": -6.144553824901809
+        },
+        "10": {
+          "n": 70,
+          "sisnri_db": 3.2176224027361187,
+          "output_sisnr_db": 13.222763919830323,
+          "gain_db": -7.042866039728215
+        },
+        "20": {
+          "n": 73,
+          "sisnri_db": 1.6426255735632491,
+          "output_sisnr_db": 21.626247014084907,
+          "gain_db": -7.099196978594727
+        },
+        "absent": {
+          "n": 40,
+          "suppression_db": 7.288847746718538
+        }
+      },
+      "checkpoint": "chkpt/cases/next_cases_20261112/exp11_film_waveform/temp_best.pth.tar",
+      "checkpoint_sha256": "06d1c26db886c29235cfbd438184c74cc38a51a3937e96361f508de8d4ed6ccc"
+    }
+  }
+}
