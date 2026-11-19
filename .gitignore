@@ -7,3 +7,5 @@ data/
 logs/
 chkpt/
 results/
+
+artifacts/
