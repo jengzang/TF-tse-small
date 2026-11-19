@@ -1,0 +1,143 @@
+{
+  "noisy02_exp10_film_finetune": {
+    "name": "noisy02_exp10_film_finetune",
+    "epoch": 45,
+    "parameters": 310586,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy02_exp10_film_finetune/temp_best.pth.tar",
+    "checkpoint_sha256": "8f684c49e03561ba2b202d81f4c6fbb2ecfc3d8c99685ee50d4c62b6b76ab5bd",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy02_exp10_film_finetune/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.415772044478217,
+        "output_sisnr": -2.737125641288003,
+        "gain": -25.151755132716055
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.492355466936715,
+        "output_sisnr": 3.0485721936565824,
+        "gain": -27.20030093118866
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.525174019858241,
+        "output_sisnr": 7.3488556910306215,
+        "gain": -27.882754650278827
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 2.9685865335632116,
+        "output_sisnr": 10.296221452997997,
+        "gain": -28.051970727208094
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 3.284277292783372,
+        "output_sisnr": 14.668568420107476,
+        "gain": -28.085976764220078
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 31.56752826153778
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "noisy05_case05_wide_film": {
+    "name": "noisy05_case05_wide_film",
+    "epoch": 49,
+    "parameters": 846362,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy05_case05_wide_film/temp_best.pth.tar",
+    "checkpoint_sha256": "9c94d9bc9a56de2f1e1bc01e9830a7760b6bd584e934623b05d2b323af67bfac",
+    "config": "/public/home/yangzheng123/project/speech_tftse/chkpt/cases/aishell2_noisy_followup_20261116/formal/noisy05_case05_wide_film/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.566138566484369,
+        "output_sisnr": -2.586759119281851,
+        "gain": -14.698939703876032
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.865541283856146,
+        "output_sisnr": 3.4217580105760135,
+        "gain": -16.425178008295788
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.959931993857026,
+        "output_sisnr": 7.7836136650294065,
+        "gain": -16.865865703397784
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 3.423053759150207,
+        "output_sisnr": 10.750688678584993,
+        "gain": -16.88400144162044
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 3.7567483323509805,
+        "output_sisnr": 15.141039459675085,
+        "gain": -16.866656822695987
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 21.29638851737972
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  },
+  "noisy01_active_gain": {
+    "name": "noisy01_active_gain",
+    "epoch": 23,
+    "parameters": 310586,
+    "checkpoint": "/public/home/yangzheng123/project/speech_tftse/runs/progress_20261119/noisy01_snapshot/temp_best.pth.tar",
+    "checkpoint_sha256": "b93661e4e06adec67c0fe063c70724cccd9e893bec83ad6dbfb7eb577fbddc24",
+    "config": "/public/home/yangzheng123/project/speech_tftse/runs/progress_20261119/noisy01_snapshot/config.yaml",
+    "summary": {
+      "-5": {
+        "n": 64,
+        "sisnri": 2.760846077930182,
+        "output_sisnr": -2.392051607836038,
+        "gain": -6.3588602225218
+      },
+      "0": {
+        "n": 64,
+        "sisnri": 3.863572892791126,
+        "output_sisnr": 3.4197896195109934,
+        "gain": -8.00760724225297
+      },
+      "5": {
+        "n": 64,
+        "sisnri": 3.7283873669803143,
+        "output_sisnr": 7.552069038152695,
+        "gain": -8.566701259961304
+      },
+      "10": {
+        "n": 64,
+        "sisnri": 3.020237985998392,
+        "output_sisnr": 10.347872905433178,
+        "gain": -8.704192676758275
+      },
+      "20": {
+        "n": 64,
+        "sisnri": 3.1536503359675407,
+        "output_sisnr": 14.537941463291645,
+        "gain": -8.770303814159107
+      },
+      "absent": {
+        "n": 52,
+        "suppression_db": 12.975534041508704
+      }
+    },
+    "precision": "fp32",
+    "selection": "validation-best checkpoint; no test tuning",
+    "protocol": "AISHELL2 dry + MUSAN; 64 matched pairs x 5 SIR, SNR 5/10/15/20 balanced; original absent examples"
+  }
+}
